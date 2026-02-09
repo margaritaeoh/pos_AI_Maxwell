@@ -1,0 +1,14 @@
+=== TEST_UI STARTUP ===
+TestApp::OnInit() called
+TestFrame constructor called
+TestFrame constructor completed
+TestFrame created
+=== TEST_UI STARTUP ===
+TestApp::OnInit() called
+TestFrame constructor called
+TestFrame shown
+TestFrame constructor completed
+TestFrame created
+TestFrame shown
+Button clicked
+Button clicked
