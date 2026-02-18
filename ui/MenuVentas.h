@@ -9,6 +9,7 @@
 #include "../datos/ArchivoProductos.h"
 #include "../datos/ArchivoVentas.h"
 #include "../modelos/Usuario.h"
+#include "BarcodeScanner.h"
 
 class MenuVentas : public wxPanel {
 public:
@@ -37,8 +38,18 @@ private:
     size_t currentSearchPage = 1;
     static constexpr size_t SEARCH_PAGE_SIZE = 20;
 
+    // Barcode scanner
+    barcode::BarcodeScanner barcodeScanner;
+    wxTextCtrl* txtBarcode;
+    wxButton* btnConnectScanner;
+    wxStaticText* lblScannerStatus;
+    bool isScannerConnected = false;
+
     void OnTextoCambio(wxCommandEvent& evt);
     void OnSeleccionSugerencia(wxCommandEvent& evt);
+    void OnBarcodeInput(wxCommandEvent& evt);
+    void OnBarcodeScanned(wxCommandEvent& evt);
+    void OnConnectScanner(wxCommandEvent& evt);
 
     void OnBuscar(wxCommandEvent& evt);
     void OnAgregarLinea(wxCommandEvent& evt);
@@ -48,6 +59,8 @@ private:
     void RefrescarGrid();
     void RecalcularTotal();
     void ActualizarSugerencias();
+    void ProcessBarcodeInput(const std::string& barcode);
+    void UpdateScannerStatus();
     
     // Helper methods for search
     double CalcularRelevancia(const std::string& busqueda, const pos::Producto* producto) const;

@@ -57,6 +57,8 @@ Main Application (pos.exe):
   ✓ Customizable UI colors, fonts, and button styles
   ✓ Theme persistence across sessions
   ✓ Resizable views for better usability
+  ✓ Barcode scanner integration (COM and USB ports)
+  ✓ ENTER key functionality in text fields
 
 Migration Utility (migrate.exe):
   ✓ Convert legacy data formats to LMDB
@@ -75,6 +77,8 @@ Documentation:
   ✓ DEPLOYMENT_GUIDE.txt - Distribution and deployment information
   ✓ REQUIREMENTS.txt - Feature list and system specifications
   ✓ DISTRIBUTION_CHECKLIST.txt - Package preparation guide
+  ✓ BARCODE_SCANNER_GUIDE.txt - Barcode scanner setup and troubleshooting
+  ✓ ENTER_KEY_FUNCTIONALITY_GUIDE.txt - ENTER key usage and workflows
   ✓ README.txt - This file
 
 ================================================================================
@@ -105,6 +109,9 @@ SALES MANAGEMENT:
   ✓ Support fractional quantities
   ✓ Customer information tracking
   ✓ Transaction timestamping
+  ✓ Barcode scanner integration
+  ✓ Auto-detect laser readers on COM/USB ports
+  ✓ Real-time product entry from barcode data
 
 REPORTING:
   ✓ Inventory reports
@@ -116,6 +123,7 @@ REPORTING:
 KEYBOARD SHORTCUTS
 ================================================================================
 
+  ENTER           Activate button or action in text fields
   Ctrl+T          Switch theme (Dark ↔ Light)
   Ctrl+P          Customize theme and UI (Personalizar Vistas)
   Ctrl+Q          Exit application
@@ -169,6 +177,42 @@ Method 3: Windows Control Panel
 
 NOTE: Your data files are preserved during uninstallation.
       To remove data: manually delete C:\Program Files\POS System\data
+
+================================================================================
+BARCODE SCANNER SETUP
+================================================================================
+
+CONNECTING A BARCODE SCANNER:
+
+1. Compatible Ports:
+   • COM1-COM9 (serial/USB-to-serial devices)
+   • USB ports (native USB barcode readers)
+
+2. To Connect:
+   • In Ventas (Sales) tab, click "Connect Scanner"
+   • Application auto-detects available readers
+   • Alternatively, specify port manually (COM3, COM4, etc.)
+   • Status indicator shows "Connected" when successful
+
+3. Supported Equipment:
+   • Laser barcode readers (standard RS-232)
+   • USB barcode scanners (appear as COM port)
+   • Old and new reader models supported
+   • Standard baud rates: 9600 (default), 19200, 38400, 57600, 115200
+
+4. Using the Scanner:
+   • Focus on barcode input field in sales tab
+   • Scan product barcode with laser reader
+   • Product automatically added to transaction
+   • Quantity can be adjusted with ENTER key
+   • No manual typing required
+
+5. Troubleshooting:
+   • Scanner not detected? Check USB/COM port connection
+   • Try different COM port if auto-detect fails
+   • Ensure scanner sends CR/LF line endings
+   • Check baud rate compatibility (default 9600)
+   • Try "Connect Scanner" button again
 
 ================================================================================
 TROUBLESHOOTING
@@ -251,6 +295,11 @@ VENTAS (Sales)
   ├─ Support for fractional units
   ├─ Customer information
   ├─ Transaction timestamp
+  ├─ Barcode scanner integration
+  ├─ Auto-detect laser readers (COM/USB ports)
+  ├─ Real-time product entry via barcode input
+  ├─ Connect/disconnect scanner button
+  ├─ Scanner status indicator
   └─ Sales history view
 
 INVENTARIO (Inventory)
@@ -383,7 +432,9 @@ For detailed information, always refer to:
   1. INSTALLATION_GUIDE.txt - For setup questions
   2. REQUIREMENTS.txt - For features and capabilities
   3. DEPLOYMENT_GUIDE.txt - For distribution to other computers
-  4. This file (README.txt) - For quick reference
+  4. BARCODE_SCANNER_GUIDE.txt - For hardware setup and troubleshooting
+  5. ENTER_KEY_FUNCTIONALITY_GUIDE.txt - For keyboard workflow optimization
+  6. This file (README.txt) - For quick reference
 
 Questions? See the comprehensive documentation files included.
 Good luck with your POS System!

@@ -27,7 +27,10 @@ static std::string toLower(const std::string& str) {
 enum {
     ID_BTN_BUSCAR = wxID_HIGHEST + 200,
     ID_BTN_AGREGAR,
-    ID_BTN_FINALIZAR
+    ID_BTN_FINALIZAR,
+    ID_BTN_CONNECT_SCANNER,
+    ID_TXT_BARCODE,
+    ID_BARCODE_SCANNED_EVENT
 };
 
 MenuVentas::MenuVentas(wxWindow* parent, const pos::Usuario& usuario)
@@ -100,6 +103,44 @@ MenuVentas::MenuVentas(wxWindow* parent, const pos::Usuario& usuario)
     listaSugerencias->Bind(wxEVT_LISTBOX, &MenuVentas::OnSeleccionSugerencia, this);
     
     btnBuscar->Bind(wxEVT_BUTTON, &MenuVentas::OnBuscar, this);
+
+    // ---------------------------
+    // Barcode scanner section
+    // ---------------------------
+    wxStaticBoxSizer* scannerBox = new wxStaticBoxSizer(
+        wxVERTICAL, scrollWin, wxString::FromUTF8("Escáner de códigos de barras"));
+
+    // Barcode input field
+    wxBoxSizer* barcodeSizer = new wxBoxSizer(wxHORIZONTAL);
+
+    wxStaticText* lblBarcode = new wxStaticText(scrollWin, wxID_ANY, 
+        wxString::FromUTF8("Código de barras:"));
+    theme::Styling::StyleAsLabel(lblBarcode);
+    barcodeSizer->Add(lblBarcode, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+
+    txtBarcode = new wxTextCtrl(scrollWin, ID_TXT_BARCODE);
+    txtBarcode->SetHint(wxString::FromUTF8("Escanee o escriba código de barras..."));
+    theme::Styling::StyleTextControl(txtBarcode);
+    barcodeSizer->Add(txtBarcode, 1, wxEXPAND | wxALL, 5);
+
+    btnConnectScanner = new wxButton(scrollWin, ID_BTN_CONNECT_SCANNER, 
+        wxString::FromUTF8("Conectar Escáner"));
+    theme::Styling::StyleButtonSecondary(btnConnectScanner);
+    barcodeSizer->Add(btnConnectScanner, 0, wxALL, 5);
+
+    scannerBox->Add(barcodeSizer, 0, wxEXPAND | wxALL, 5);
+
+    // Scanner status
+    lblScannerStatus = new wxStaticText(scrollWin, wxID_ANY, 
+        wxString::FromUTF8("Estado: Desconectado"));
+    theme::Styling::StyleAsLabel(lblScannerStatus);
+    scannerBox->Add(lblScannerStatus, 0, wxALL, 5);
+
+    scrollSizer->Add(scannerBox, 0, wxEXPAND | wxALL, 5);
+
+    // Bind scanner events
+    btnConnectScanner->Bind(wxEVT_BUTTON, &MenuVentas::OnConnectScanner, this);
+    txtBarcode->Bind(wxEVT_TEXT_ENTER, &MenuVentas::OnBarcodeInput, this);
 
     // ---------------------------
     // Product information
@@ -464,4 +505,113 @@ double MenuVentas::CalcularRelevancia(const std::string& busqueda, const pos::Pr
     }
     
     return 0.0;
+}
+
+// ---------------------------
+// Barcode Scanner Methods
+// ---------------------------
+
+void MenuVentas::OnConnectScanner(wxCommandEvent& evt) {
+    if (isScannerConnected) {
+        // Disconnect
+        barcodeScanner.Disconnect();
+        isScannerConnected = false;
+        UpdateScannerStatus();
+        btnConnectScanner->SetLabel(wxString::FromUTF8("Conectar Escáner"));
+    } else {
+        // Try to auto-detect and connect
+        if (barcodeScanner.AutoDetect(9600)) {
+            isScannerConnected = true;
+            // Start listening for barcode events
+            barcodeScanner.StartListening(this, ID_BARCODE_SCANNED_EVENT);
+            UpdateScannerStatus();
+            btnConnectScanner->SetLabel(wxString::FromUTF8("Desconectar Escáner"));
+            wxLogMessage("Escáner conectado en puerto: %s", 
+                        wxString::FromUTF8(barcodeScanner.GetCurrentPort()));
+        } else {
+            wxMessageBox(wxString::FromUTF8("No se pudo detectar el escáner.\n\nVerifique:\n"
+                                           "1. El escáner está conectado\n"
+                                           "2. Los controladores están instalados\n"
+                                           "3. El puerto COM no está en uso"),
+                        wxString::FromUTF8("Error de conexión"),
+                        wxOK | wxICON_ERROR);
+            wxLogError("Escáner no detectado. Error: %s", 
+                      wxString::FromUTF8(barcodeScanner.GetLastError()));
+        }
+    }
+}
+
+void MenuVentas::OnBarcodeInput(wxCommandEvent& evt) {
+    wxString barcodeWx = txtBarcode->GetValue();
+    std::string barcode = barcodeWx.ToStdString();
+    
+    if (!barcode.empty()) {
+        ProcessBarcodeInput(barcode);
+        txtBarcode->SetValue("");  // Clear for next barcode
+        txtBarcode->SetFocus();    // Keep focus on barcode field
+    }
+}
+
+void MenuVentas::ProcessBarcodeInput(const std::string& barcode) {
+    // Search for product by barcode
+    pos::Producto* p = inventario.buscarPorCodigoBarras(barcode);
+    
+    if (!p) {
+        wxLogWarning("Código de barras no encontrado: %s", wxString::FromUTF8(barcode));
+        wxMessageBox(wxString::Format(wxString::FromUTF8("Producto con código %s no encontrado."),
+                                     wxString::FromUTF8(barcode)),
+                    wxString::FromUTF8("Producto no encontrado"),
+                    wxOK | wxICON_INFORMATION);
+        return;
+    }
+
+    // Check inventory availability
+    if (p->cantidadInventario <= 0) {
+        wxMessageBox(wxString::Format(wxString::FromUTF8("Producto %s sin existencias."),
+                                     wxString::FromUTF8(p->nombre)),
+                    wxString::FromUTF8("Sin existencias"),
+                    wxOK | wxICON_WARNING);
+        return;
+    }
+
+    // Update the code field for visual feedback
+    txtCodigo->SetValue(wxString::FromUTF8(p->codigoBarras));
+    
+    // Update product info display
+    lblProducto->SetLabel(
+        wxString::Format(wxString::FromUTF8("Producto: %s (inventario: %.3f)"),
+                        wxString::FromUTF8(p->nombre),
+                        p->cantidadInventario));
+
+    // Focus on quantity field for user to confirm or change
+    txtCantidad->SetValue("1");
+    txtCantidad->SetFocus();
+    txtCantidad->SelectAll();
+
+    wxLogMessage("Código escaneado: %s - Producto: %s", 
+                wxString::FromUTF8(barcode), wxString::FromUTF8(p->nombre));
+}
+
+void MenuVentas::UpdateScannerStatus() {
+    if (isScannerConnected) {
+        wxString portInfo = wxString::Format(
+            wxString::FromUTF8("Estado: Conectado (%s @ %d baud)"),
+            wxString::FromUTF8(barcodeScanner.GetCurrentPort()),
+            barcodeScanner.GetBaudRate());
+        lblScannerStatus->SetLabel(portInfo);
+        lblScannerStatus->SetForegroundColour(*wxGREEN);
+    } else {
+        lblScannerStatus->SetLabel(wxString::FromUTF8("Estado: Desconectado"));
+        lblScannerStatus->SetForegroundColour(*wxRED);
+    }
+    lblScannerStatus->Refresh();
+}
+
+void MenuVentas::OnBarcodeScanned(wxCommandEvent& evt) {
+    // This is called by the barcode scanner background thread
+    // The scanner sends barcode data via custom event
+    if (evt.GetString().IsEmpty()) return;
+    
+    std::string barcode = evt.GetString().ToStdString();
+    ProcessBarcodeInput(barcode);
 }

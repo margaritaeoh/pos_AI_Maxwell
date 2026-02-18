@@ -8,7 +8,47 @@ Date: February 17, 2026
 1. POS APPLICATION FEATURES
 ===============================================================================
 
-1.1 USER AUTHENTICATION & SESSION MANAGEMENT
+1.1 BARCODE SCANNER INTEGRATION
+  ✓ Multi-port barcode scanner support:
+    - COM1-COM9 serial ports (legacy laser readers)
+    - USB ports (modern barcode readers)
+    - Auto-detection of available ports
+  ✓ Barcode reader compatibility:
+    - High compatibility with old and new laser readers
+    - Standard RS-232 serial protocol (9600 baud default)
+    - USB serial emulation support
+    - Configurable baud rates (9600, 19200, 38400, 57600, 115200)
+  ✓ Real-time barcode data collection:
+    - Background thread for continuous monitoring
+    - Automatic barcode queue management
+    - Multi-format barcode support (EAN-13, UPC, Code128, etc.)
+  ✓ Sales view integration:
+    - Direct barcode input field in sales module
+    - Automatic product lookup and entry
+    - No manual product code typing required
+    - Scanner status indicator (connected/disconnected)
+  ✓ Scanner connection management:
+    - Auto-connect on application startup
+    - Manual connect/disconnect buttons
+    - Port status display
+    - Error handling and logging
+
+1.2 KEYBOARD ENTER KEY FUNCTIONALITY
+  ✓ ENTER key as action trigger:
+    - Works in all text input fields where applicable
+    - ENTER key functions as "Accept" or "OK" button
+    - Improves data entry speed and workflow
+  ✓ Implemented in:
+    - Product sales quantity input
+    - Barcode scanner input
+    - Customer information fields
+    - Search and filter fields
+    - Database entry forms
+  ✓ Consistent behavior across application:
+    - Standard ENTER key processing in all dialogs
+    - No inconsistent behavior between modules
+
+1.3 USER AUTHENTICATION & SESSION MANAGEMENT
   ✓ Login Window with email/password authentication
   ✓ Sign-up functionality with user registration
   ✓ Session management with current user tracking
@@ -16,7 +56,7 @@ Date: February 17, 2026
   ✓ User management capabilities for administrators
   ✓ Spanish language support throughout authentication flows
 
-1.2 THEME SYSTEM & CUSTOMIZATION
+1.4 THEME SYSTEM & CUSTOMIZATION
   ✓ Default Dark Theme (VS Code-style modern appearance)
   ✓ Light Theme (classic Windows 98-style alternative)
   ✓ Theme Toggle Menu (Ctrl+T shortcut)
@@ -40,7 +80,7 @@ Date: February 17, 2026
   ✓ Theme loading on application startup
   ✓ Real-time theme application across all UI elements
 
-1.3 INVENTORY MANAGEMENT MODULE
+1.5 INVENTORY MANAGEMENT MODULE
   ✓ Product listing and display
   ✓ Product information form with:
     - Product name (Spanish accents supported)
@@ -57,7 +97,7 @@ Date: February 17, 2026
   ✓ Inventory file persistence
   ✓ Stock level monitoring
 
-1.4 SALES MANAGEMENT MODULE
+1.6 SALES MANAGEMENT MODULE
   ✓ Sale transaction recording
   ✓ Sale item management with:
     - Product selection
@@ -74,7 +114,7 @@ Date: February 17, 2026
   ✓ Sales history tracking
   ✓ Sales file persistence
 
-1.5 REPORTING MODULE
+1.7 REPORTING MODULE
   ✓ Inventory Report Generation
     - Product listing with current stock
     - Stock value calculations
@@ -88,7 +128,7 @@ Date: February 17, 2026
   ✓ Report export functionality (CSV format)
   ✓ Spanish-language report headers and labels
 
-1.6 DATA MANAGEMENT & PERSISTENCE
+1.8 DATA MANAGEMENT & PERSISTENCE
   ✓ LMDB database backend
   ✓ File-based persistence for:
     - User credentials
@@ -100,7 +140,7 @@ Date: February 17, 2026
   ✓ Index management utilities
   ✓ Data migration utilities (see MIGRATE UTILITY section)
 
-1.7 USER INTERFACE & UX FEATURES
+1.9 USER INTERFACE & UX FEATURES
   ✓ Multi-tab interface with:
     - Ventas (Sales) tab
     - Inventario (Inventory) tab
@@ -113,12 +153,15 @@ Date: February 17, 2026
   ✓ Keyboard shortcuts:
     - Ctrl+T: Toggle theme
     - Ctrl+P: Customize views (Personalizar Vistas)
+    - ENTER: Action trigger in text fields
   ✓ Status updates and user feedback
   ✓ Help file integration
   ✓ About dialog with application information
   ✓ Responsive layouts that adapt to window resizing
+  ✓ Barcode scanner status indicators (connected/disconnected)
+  ✓ Scanner connection management UI (connect/disconnect buttons)
 
-1.8 LOCALIZATION & INTERNATIONALIZATION
+1.10 LOCALIZATION & INTERNATIONALIZATION
   ✓ Full Spanish language support throughout application
   ✓ UTF-8 character encoding for accented characters:
     - Spanish accents (á, é, í, ó, ú)
@@ -128,17 +171,20 @@ Date: February 17, 2026
   ✓ Spanish currency formatting
   ✓ Spanish number formatting
 
-1.9 TECHNICAL REQUIREMENTS
+1.11 TECHNICAL REQUIREMENTS
   ✓ Built with wxWidgets 3.2 (cross-platform UI framework)
   ✓ C++17 standard compliance
   ✓ Static linking for wxWidgets libraries
   ✓ LMDB database integration
   ✓ MinGW64 compiler support on Windows
   ✓ UTF-8 file I/O and stream handling
+  ✓ Windows Serial API (Windows.h, SetupAPI.h)
+  ✓ Multi-threading support for barcode scanning
   ✓ Object-oriented architecture with:
     - Usuario (User) model
     - Producto (Product) model
     - Venta (Sale) model
+    - BarcodeScanner class for hardware integration
     - Business logic separation (Autenticacion, Inventario, ProcesadorVentas)
     - Data access layer (Archivo*, DatabaseManager, IndexManager)
 
@@ -303,11 +349,17 @@ Date: February 17, 2026
   ✓ Comprehensive theme customization dialog
   ✓ Theme persistence across sessions
   ✓ Dynamic theme application to runtime UI changes
+  ✓ Multi-port barcode scanner integration (COM and USB)
+  ✓ Auto-detection of barcode readers
+  ✓ Legacy and modern laser reader compatibility
+  ✓ Real-time barcode data collection in sales module
+  ✓ ENTER key functionality in text fields
+  ✓ Background thread support for continuous barcode monitoring
+  ✓ Scanner status indicators and connection management
 
 8.2 FUTURE ENHANCEMENTS (Potential)
   - Multi-user concurrent access
   - Advanced reporting with charts/graphs
-  - Barcode scanning integration
   - Receipt printing functionality
   - Cloud backup integration
   - Mobile app companion
@@ -315,6 +367,9 @@ Date: February 17, 2026
   - Advanced search and filtering
   - Bulk data import/export
   - User activity logging and auditing
+  - Wireless barcode reader support
+  - Image/photo capture for product identification
+  - Voice command integration
 
 ================================================================================
 END OF REQUIREMENTS DOCUMENT

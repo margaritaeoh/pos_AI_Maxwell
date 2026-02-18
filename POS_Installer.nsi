@@ -6,7 +6,7 @@
 !include "x64.nsh"
 
 ; Basic Settings
-Name "POS System v1.0"
+Name "POS System v1.0 - with Barcode Scanner & ENTER Key Support"
 OutFile "POS_System_Installer_v1.0.exe"
 InstallDir "$PROGRAMFILES\POS System"
 InstallDirRegKey HKCU "Software\POS System" "Install_Dir"
@@ -19,6 +19,7 @@ Var StartMenuFolder
 
 ; MUI2 Settings
 !insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE "README.txt"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_STARTMENU "Application" $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
@@ -36,6 +37,21 @@ Section "Install POS Application" SecApp
   
   ; Copy migration utility
   File "migrate.exe"
+  
+  ; Copy documentation files
+  File "README.txt"
+  File "REQUIREMENTS.txt"
+  File "INSTALLATION_GUIDE.txt"
+  File "DEPLOYMENT_GUIDE.txt"
+  
+  ; Create documentation directory
+  CreateDirectory "$INSTDIR\Documentation"
+  SetOutPath "$INSTDIR\Documentation"
+  File "BARCODE_SCANNER_GUIDE.txt"
+  File "ENTER_KEY_FUNCTIONALITY_GUIDE.txt"
+  File "SCALABILITY_IMPROVEMENTS.md"
+  
+  SetOutPath "$INSTDIR"
   
   ; Create data directories with empty CSVs for first-time setup
   CreateDirectory "$INSTDIR\data"
@@ -69,10 +85,16 @@ Section "Install POS Application" SecApp
   WriteRegStr HKCU "Software\POS System" "Install_Dir" "$INSTDIR"
   WriteUninstaller "$INSTDIR\uninstall.exe"
   
+  ; Inform user about new features
+  MessageBox MB_ICONINFORMATION "POS System v1.0 installed successfully!$\n$\nNEW FEATURES:$\n- Barcode Scanner Integration (USB/COM ports)$\n- ENTER Key Functionality in text fields$\n- Enhanced keyboard shortcuts$\n$\nFor setup details, see:$\n- BARCODE_SCANNER_GUIDE.txt$\n- ENTER_KEY_FUNCTIONALITY_GUIDE.txt$\n$\nThese guides are available in your Documentation folder and Start Menu."
+  
   ; Create Start Menu shortcuts
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
   CreateShortCut "$SMPROGRAMS\$StartMenuFolder\POS System.lnk" "$INSTDIR\pos.exe"
+  CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Barcode Scanner Guide.lnk" "$INSTDIR\Documentation\BARCODE_SCANNER_GUIDE.txt"
+  CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ENTER Key Guide.lnk" "$INSTDIR\Documentation\ENTER_KEY_FUNCTIONALITY_GUIDE.txt"
+  CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Requirements.lnk" "$INSTDIR\REQUIREMENTS.txt"
   CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\uninstall.exe"
   !insertmacro MUI_STARTMENU_WRITE_END
   
@@ -91,6 +113,16 @@ Section "Uninstall"
   Delete "$INSTDIR\pos.exe"
   Delete "$INSTDIR\migrate.exe"
   Delete "$INSTDIR\uninstall.exe"
+  Delete "$INSTDIR\README.txt"
+  Delete "$INSTDIR\REQUIREMENTS.txt"
+  Delete "$INSTDIR\INSTALLATION_GUIDE.txt"
+  Delete "$INSTDIR\DEPLOYMENT_GUIDE.txt"
+  
+  ; Remove documentation files
+  Delete "$INSTDIR\Documentation\BARCODE_SCANNER_GUIDE.txt"
+  Delete "$INSTDIR\Documentation\ENTER_KEY_FUNCTIONALITY_GUIDE.txt"
+  Delete "$INSTDIR\Documentation\SCALABILITY_IMPROVEMENTS.md"
+  RMDir "$INSTDIR\Documentation"
   
   ; Remove shortcuts
   !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
@@ -102,15 +134,15 @@ Section "Uninstall"
   ; Note: Data directory is preserved on uninstall to prevent data loss
   ; Users can manually delete "$INSTDIR\data" if desired
   
-  MessageBox MB_ICONINFORMATION "POS System has been uninstalled.$\n$\nData files in $INSTDIR\data have been preserved."
+  MessageBox MB_ICONINFORMATION "POS System has been uninstalled.$\n$\nData files in $INSTDIR\data have been preserved.$\n$\nFor barcode scanner support and ENTER key features, see the documentation guides."
 SectionEnd
 
 ; Descriptions for sections
-LangString DESC_SecApp ${LANG_ENGLISH} "Install the main POS System application"
-LangString DESC_SecMigrate ${LANG_ENGLISH} "Install the database migration utility"
+LangString DESC_SecApp ${LANG_ENGLISH} "Install the main POS System application with barcode scanner support and ENTER key functionality. Includes comprehensive documentation."
+LangString DESC_SecMigrate ${LANG_ENGLISH} "Install the database migration utility for converting legacy data to LMDB format."
 
-LangString DESC_SecApp ${LANG_SPANISH} "Instalar la aplicación principal del Sistema POS"
-LangString DESC_SecMigrate ${LANG_SPANISH} "Instalar la utilidad de migración de base de datos"
+LangString DESC_SecApp ${LANG_SPANISH} "Instalar la aplicación principal del Sistema POS con soporte para escáner de códigos de barras y funcionalidad de tecla ENTER. Incluye documentación completa."
+LangString DESC_SecMigrate ${LANG_SPANISH} "Instalar la utilidad de migración de base de datos para convertir datos heredados al formato LMDB."
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${SecApp} $(DESC_SecApp)

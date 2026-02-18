@@ -3749,4 +3749,800 @@ Log file: /c/Cpp_gen_AI/pos/build_output.log
 
 Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
 Open this file to check for errors.
+Press Enter to exit...Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname C:/Cpp_gen_AI/pos/build.sh
+++ cd C:/Cpp_gen_AI/pos
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'Removing old executable: /c/Cpp_gen_AI/pos/pos.exe'
+Removing old executable: /c/Cpp_gen_AI/pos/pos.exe
++ rm -f /c/Cpp_gen_AI/pos/pos.exe
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb
+C:/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp: In static member function 'static std::vector<std::__cxx11::basic_string<char> > barcode::BarcodeScanner::GetAvailableUSBPorts()':
+C:/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp:156:13: error: 'SetupDiGetClassNameA' was not declared in this scope; did you mean 'SetupDiGetClassDevsA'?
+  156 |         if (SetupDiGetClassNameA(hDevInfo, DeviceInfoData.ClassGuid, className,
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             SetupDiGetClassDevsA
+C:/Cpp_gen_AI/pos/ui/MenuVentas.cpp: In constructor 'MenuVentas::MenuVentas(wxWindow*, const pos::Usuario&)':
+C:/Cpp_gen_AI/pos/ui/MenuVentas.cpp:112:38: error: cannot convert 'wxStaticBoxSizer*' to 'wxWindow*'
+  112 |     theme::Styling::ApplyActiveTheme(scannerBox);
+      |                                      ^~~~~~~~~~
+      |                                      |
+      |                                      wxStaticBoxSizer*
+In file included from C:/Cpp_gen_AI/pos/ui/MenuVentas.cpp:3:
+C:/Cpp_gen_AI/pos/ui/ThemeHelper.h:163:48: note: initializing argument 1 of 'static void theme::Styling::ApplyActiveTheme(wxWindow*)'
+  163 |         static void ApplyActiveTheme(wxWindow* window);
+      |                                      ~~~~~~~~~~^~~~~~
++ EXIT_CODE=1
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 1 -eq 0 ']'
++ set +x
+================================
+BUILD SUMMARY
+================================
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:20:47 PM
+Exit Code: 1
+
+✗ MAIN BUILD FAILED (exit code 1)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+Date: Tue, Feb 17, 2026  9:20:47 PM
+Exit Code: 1
+
+✗ MAIN BUILD FAILED (exit code 1)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
+Press Enter to exit...Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname build.sh
+++ cd .
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb
+build.sh: line 56: g++: command not found
++ EXIT_CODE=127
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 127 -eq 0 ']'
++ set +x
+================================
+BUILD SUMMARY
+================================
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:21:41 PM
+Exit Code: 127
+
+✗ MAIN BUILD FAILED (exit code 127)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+Date: Tue, Feb 17, 2026  9:21:41 PM
+Exit Code: 127
+
+✗ MAIN BUILD FAILED (exit code 127)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
+Press Enter to exit...Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname build.sh
+++ cd .
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb
+build.sh: line 56: g++: command not found
++ EXIT_CODE=127
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 127 -eq 0 ']'
++ set +x
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:23:15 PM
+Exit Code: 127
+
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:23:15 PM
+Exit Code: 127
+
+✗ MAIN BUILD FAILED (exit code 127)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+✗ MAIN BUILD FAILED (exit code 127)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
+Press Enter to exit...Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname build.sh
+++ cd .
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb
+build.sh: line 56: g++: command not found
++ EXIT_CODE=127
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 127 -eq 0 ']'
++ set +x
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:27:29 PM
+Exit Code: 127
+
+✗ MAIN BUILD FAILED (exit code 127)
+Check error messages above
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:27:29 PM
+Exit Code: 127
+
+
+✗ MAIN BUILD FAILED (exit code 127)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+✗ Migration utility skipped (main build failed)
+
+================================
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
+Press Enter to exit...Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname build.sh
+++ cd .
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
+Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname C:/Cpp_gen_AI/pos/build.sh
+++ cd C:/Cpp_gen_AI/pos
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb
+C:/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp: In static member function 'static std::vector<std::__cxx11::basic_string<char> > barcode::BarcodeScanner::GetAvailableUSBPorts()':
+C:/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp:156:13: error: 'SetupDiGetClassNameA' was not declared in this scope; did you mean 'SetupDiGetClassDevsA'?
+  156 |         if (SetupDiGetClassNameA(hDevInfo, DeviceInfoData.ClassGuid, className,
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             SetupDiGetClassDevsA
+C:/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp: In static member function 'static std::vector<std::__cxx11::basic_string<char> > barcode::BarcodeScanner::GetAvailableUSBPorts()':
+C:/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp:156:13: error: 'SetupDiGetClassNameA' was not declared in this scope; did you mean 'SetupDiGetClassDevsA'?
+  156 |         if (SetupDiGetClassNameA(hDevInfo, DeviceInfoData.ClassGuid, className,
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             SetupDiGetClassDevsA
+C:/Cpp_gen_AI/pos/ui/MenuVentas.cpp: In constructor 'MenuVentas::MenuVentas(wxWindow*, const pos::Usuario&)':
+C:/Cpp_gen_AI/pos/ui/MenuVentas.cpp:112:38: error: cannot convert 'wxStaticBoxSizer*' to 'wxWindow*'
+  112 |     theme::Styling::ApplyActiveTheme(scannerBox);
+      |                                      ^~~~~~~~~~
+      |                                      |
+      |                                      wxStaticBoxSizer*
+In file included from C:/Cpp_gen_AI/pos/ui/MenuVentas.cpp:3:
+C:/Cpp_gen_AI/pos/ui/ThemeHelper.h:163:48: note: initializing argument 1 of 'static void theme::Styling::ApplyActiveTheme(wxWindow*)'
+  163 |         static void ApplyActiveTheme(wxWindow* window);
+      |                                      ~~~~~~~~~~^~~~~~
+C:/Cpp_gen_AI/pos/ui/MenuVentas.cpp: In constructor 'MenuVentas::MenuVentas(wxWindow*, const pos::Usuario&)':
+C:/Cpp_gen_AI/pos/ui/MenuVentas.cpp:112:38: error: cannot convert 'wxStaticBoxSizer*' to 'wxWindow*'
+  112 |     theme::Styling::ApplyActiveTheme(scannerBox);
+      |                                      ^~~~~~~~~~
+      |                                      |
+      |                                      wxStaticBoxSizer*
+In file included from C:/Cpp_gen_AI/pos/ui/MenuVentas.cpp:3:
+C:/Cpp_gen_AI/pos/ui/ThemeHelper.h:163:48: note: initializing argument 1 of 'static void theme::Styling::ApplyActiveTheme(wxWindow*)'
+  163 |         static void ApplyActiveTheme(wxWindow* window);
+      |                                      ~~~~~~~~~~^~~~~~
++ EXIT_CODE=1
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 1 -eq 0 ']'
++ set +x
+================================
+BUILD SUMMARY
+================================
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:32:01 PM
+Exit Code: 1
+
+✗ MAIN BUILD FAILED (exit code 1)
+Check error messages above
+Date: Tue, Feb 17, 2026  9:32:01 PM
+Exit Code: 1
+
+✗ Migration utility skipped (main build failed)
+
+✗ MAIN BUILD FAILED (exit code 1)
+Check error messages above
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
+✗ Migration utility skipped (main build failed)
+================================
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
+Press Enter to exit...+ EXIT_CODE=1
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 1 -eq 0 ']'
++ set +x
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:32:03 PM
+Exit Code: 1
+
+✗ MAIN BUILD FAILED (exit code 1)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:32:03 PM
+Exit Code: 1
+
+✗ MAIN BUILD FAILED (exit code 1)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
+Press Enter to exit...Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname C:/Cpp_gen_AI/pos/build.sh
+++ cd C:/Cpp_gen_AI/pos
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb
+C:/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp: In static member function 'static std::vector<std::__cxx11::basic_string<char> > barcode::BarcodeScanner::GetAvailableUSBPorts()':
+C:/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp:156:13: error: 'SetupDiGetClassNameA' was not declared in this scope; did you mean 'SetupDiGetClassDevsA'?
+  156 |         if (SetupDiGetClassNameA(hDevInfo, DeviceInfoData.ClassGuid, className,
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             SetupDiGetClassDevsA
++ EXIT_CODE=1
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 1 -eq 0 ']'
++ set +x
+================================
+BUILD SUMMARY
+================================
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:33:24 PM
+Exit Code: 1
+
+Date: Tue, Feb 17, 2026  9:33:24 PM
+Exit Code: 1
+
+✗ MAIN BUILD FAILED (exit code 1)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+✗ MAIN BUILD FAILED (exit code 1)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
+Press Enter to exit...Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname C:/Cpp_gen_AI/pos/build.sh
+++ cd C:/Cpp_gen_AI/pos
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb
+C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\msys64\tmp\ccVEPGU9.o:BarcodeScanner:(.text+0x715): undefined reference to `__imp_SetupDiGetClassDevsA'
+C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\msys64\tmp\ccVEPGU9.o:BarcodeScanner:(.text+0x783): undefined reference to `__imp_SetupDiGetDeviceRegistryPropertyA'
+C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\msys64\tmp\ccVEPGU9.o:BarcodeScanner:(.text+0x86d): undefined reference to `__imp_SetupDiEnumDeviceInfo'
+C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\msys64\tmp\ccVEPGU9.o:BarcodeScanner:(.text+0x88d): undefined reference to `__imp_SetupDiDestroyDeviceInfoList'
+collect2.exe: error: ld returned 1 exit status
++ EXIT_CODE=1
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 1 -eq 0 ']'
++ set +x
+================================
+BUILD SUMMARY
+================================
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:35:06 PM
+Exit Code: 1
+
+✗ MAIN BUILD FAILED (exit code 1)
+Date: Tue, Feb 17, 2026  9:35:06 PM
+Exit Code: 1
+Check error messages above
+
+
+✗ MAIN BUILD FAILED (exit code 1)
+Check error messages above
+
+✗ Migration utility skipped (main build failed)
+✗ Migration utility skipped (main build failed)
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
+Press Enter to exit...Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname C:/Cpp_gen_AI/pos/build.sh
+++ cd C:/Cpp_gen_AI/pos
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb -lsetupapi'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb -lsetupapi
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb -lsetupapi
++ EXIT_CODE=0
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 0 -eq 0 ']'
++ echo ''
+
++ echo 'Building migration utility: /c/Cpp_gen_AI/pos/migrate.exe'
+Building migration utility: /c/Cpp_gen_AI/pos/migrate.exe
++ '[' -f /c/Cpp_gen_AI/pos/migrate.exe ']'
++ MIGRATE_SRC=("$SCRIPT_DIR/migrate.cpp" "$SCRIPT_DIR/datos/MigrationUtility.cpp" "$SCRIPT_DIR/datos/DatabaseManager.cpp" "$SCRIPT_DIR/datos/IndexManager.cpp")
++ echo 'g++ -std=c++17 "/c/Cpp_gen_AI/pos/migrate.cpp' /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp '/c/Cpp_gen_AI/pos/datos/IndexManager.cpp" -o "/c/Cpp_gen_AI/pos/migrate.exe" -llmdb -static-libgcc -static-libstdc++'
+g++ -std=c++17 "/c/Cpp_gen_AI/pos/migrate.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp" -o "/c/Cpp_gen_AI/pos/migrate.exe" -llmdb -static-libgcc -static-libstdc++
++ g++ -std=c++17 /c/Cpp_gen_AI/pos/migrate.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp -o /c/Cpp_gen_AI/pos/migrate.exe -llmdb -static-libgcc -static-libstdc++
++ MIGRATE_EXIT=0
++ '[' 0 -eq 0 ']'
++ echo 'Migration utility compiled successfully'
+Migration utility compiled successfully
++ ls -l /c/Cpp_gen_AI/pos/migrate.exe
+-rwxr-xr-x 1 marga marga 3761898 Feb 17 21:37 /c/Cpp_gen_AI/pos/migrate.exe
++ echo ''
+
++ echo 'Building test UI: /c/Cpp_gen_AI/pos/test_ui.exe'
+Building test UI: /c/Cpp_gen_AI/pos/test_ui.exe
++ '[' -f /c/Cpp_gen_AI/pos/test_ui.exe ']'
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/test_ui.cpp" -o "/c/Cpp_gen_AI/pos/test_ui.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/test_ui.cpp" -o "/c/Cpp_gen_AI/pos/test_ui.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/test_ui.cpp -o /c/Cpp_gen_AI/pos/test_ui.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++
++ TEST_UI_EXIT=0
++ '[' 0 -eq 0 ']'
++ echo 'Test UI compiled successfully'
+Test UI compiled successfully
++ ls -l /c/Cpp_gen_AI/pos/test_ui.exe
+-rwxr-xr-x 1 marga marga 14097800 Feb 17 21:37 /c/Cpp_gen_AI/pos/test_ui.exe
++ set +x
+================================
+BUILD SUMMARY
+================================
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:37:13 PM
+Exit Code: 0
+
+Date: Tue, Feb 17, 2026  9:37:13 PM
+Exit Code: 0
+
+✓ MAIN BUILD SUCCESSFUL
+Executable: /c/Cpp_gen_AI/pos/pos.exe
+✓ MAIN BUILD SUCCESSFUL
+Executable: /c/Cpp_gen_AI/pos/pos.exe
+-rwxr-xr-x 1 marga marga 17M Feb 17 21:37 /c/Cpp_gen_AI/pos/pos.exe
+-rwxr-xr-x 1 marga marga 17M Feb 17 21:37 /c/Cpp_gen_AI/pos/pos.exe
+
+
+✓ MIGRATION UTILITY BUILD
+✓ migrate.exe compiled successfully
+✓ MIGRATION UTILITY BUILD
+✓ migrate.exe compiled successfully
+-rwxr-xr-x 1 marga marga 3.6M Feb 17 21:37 /c/Cpp_gen_AI/pos/migrate.exe
+-rwxr-xr-x 1 marga marga 3.6M Feb 17 21:37 /c/Cpp_gen_AI/pos/migrate.exe
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
+Press Enter to exit...Compilation STARTED
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+
++++ dirname C:/Cpp_gen_AI/pos/build.sh
+++ cd C:/Cpp_gen_AI/pos
+++ pwd
++ SCRIPT_DIR=/c/Cpp_gen_AI/pos
++ echo 'Project root (POSIX path): /c/Cpp_gen_AI/pos'
+Project root (POSIX path): /c/Cpp_gen_AI/pos
++ SRC=("$SCRIPT_DIR"/main.cpp "$SCRIPT_DIR"/ui/*.cpp "$SCRIPT_DIR"/negocio/*.cpp "$SCRIPT_DIR"/datos/*.cpp)
++ OUT_EXE=/c/Cpp_gen_AI/pos/pos.exe
++ '[' -x /mingw64/bin/wx-config ']'
++ WX_CONFIG=/mingw64/bin/wx-config
++ echo 'Using wx-config: /mingw64/bin/wx-config'
+Using wx-config: /mingw64/bin/wx-config
+++ /mingw64/bin/wx-config --static --cxxflags
++ WX_CXXFLAGS='-IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__'
+++ /mingw64/bin/wx-config --static --libs
++ WX_LIBS_RAW='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ echo '-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a '
+++ sed s/-shared-libgcc//g
++ WX_LIBS='-LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
++ LMDB_LIBS=-llmdb
++ pkg-config --exists lmdb
++ echo 'WARNING: LMDB not found via pkg-config. Using default -llmdb'
+WARNING: LMDB not found via pkg-config. Using default -llmdb
++ echo 'Compiling to: /c/Cpp_gen_AI/pos/pos.exe'
+Compiling to: /c/Cpp_gen_AI/pos/pos.exe
++ '[' -f /c/Cpp_gen_AI/pos/pos.exe ']'
++ echo 'Removing old executable: /c/Cpp_gen_AI/pos/pos.exe'
+Removing old executable: /c/Cpp_gen_AI/pos/pos.exe
++ rm -f /c/Cpp_gen_AI/pos/pos.exe
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp' /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp '/c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp" -o "/c/Cpp_gen_AI/pos/pos.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++ -llmdb
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/main.cpp /c/Cpp_gen_AI/pos/ui/BarcodeScanner.cpp /c/Cpp_gen_AI/pos/ui/CantidadFraccionDialog.cpp /c/Cpp_gen_AI/pos/ui/LoginWindow.cpp /c/Cpp_gen_AI/pos/ui/MainWindow.cpp /c/Cpp_gen_AI/pos/ui/MenuInventario.cpp /c/Cpp_gen_AI/pos/ui/MenuReportes.cpp /c/Cpp_gen_AI/pos/ui/MenuVentas.cpp /c/Cpp_gen_AI/pos/ui/ProductoForm.cpp /c/Cpp_gen_AI/pos/ui/SignUpWindow.cpp /c/Cpp_gen_AI/pos/ui/ThemeHelper.cpp /c/Cpp_gen_AI/pos/ui/UICustomizationDialog.cpp /c/Cpp_gen_AI/pos/negocio/Autenticacion.cpp /c/Cpp_gen_AI/pos/negocio/Inventario.cpp /c/Cpp_gen_AI/pos/negocio/ProcesadorVentas.cpp /c/Cpp_gen_AI/pos/negocio/Reportes.cpp /c/Cpp_gen_AI/pos/datos/ArchivoProductos.cpp /c/Cpp_gen_AI/pos/datos/ArchivoUsuarios.cpp /c/Cpp_gen_AI/pos/datos/ArchivoVentas.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp -o /c/Cpp_gen_AI/pos/pos.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++ -llmdb
++ EXIT_CODE=0
++ OUT_MIGRATE=/c/Cpp_gen_AI/pos/migrate.exe
++ OUT_TEST_UI=/c/Cpp_gen_AI/pos/test_ui.exe
++ '[' 0 -eq 0 ']'
++ echo ''
+
++ echo 'Building migration utility: /c/Cpp_gen_AI/pos/migrate.exe'
+Building migration utility: /c/Cpp_gen_AI/pos/migrate.exe
++ '[' -f /c/Cpp_gen_AI/pos/migrate.exe ']'
++ rm -f /c/Cpp_gen_AI/pos/migrate.exe
++ MIGRATE_SRC=("$SCRIPT_DIR/migrate.cpp" "$SCRIPT_DIR/datos/MigrationUtility.cpp" "$SCRIPT_DIR/datos/DatabaseManager.cpp" "$SCRIPT_DIR/datos/IndexManager.cpp")
++ echo 'g++ -std=c++17 "/c/Cpp_gen_AI/pos/migrate.cpp' /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp '/c/Cpp_gen_AI/pos/datos/IndexManager.cpp" -o "/c/Cpp_gen_AI/pos/migrate.exe" -llmdb -static-libgcc -static-libstdc++'
+g++ -std=c++17 "/c/Cpp_gen_AI/pos/migrate.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp" -o "/c/Cpp_gen_AI/pos/migrate.exe" -llmdb -static-libgcc -static-libstdc++
++ g++ -std=c++17 /c/Cpp_gen_AI/pos/migrate.cpp /c/Cpp_gen_AI/pos/datos/MigrationUtility.cpp /c/Cpp_gen_AI/pos/datos/DatabaseManager.cpp /c/Cpp_gen_AI/pos/datos/IndexManager.cpp -o /c/Cpp_gen_AI/pos/migrate.exe -llmdb -static-libgcc -static-libstdc++
++ MIGRATE_EXIT=0
++ '[' 0 -eq 0 ']'
++ echo 'Migration utility compiled successfully'
+Migration utility compiled successfully
++ ls -l /c/Cpp_gen_AI/pos/migrate.exe
+-rwxr-xr-x 1 marga marga 3761898 Feb 17 21:38 /c/Cpp_gen_AI/pos/migrate.exe
++ echo ''
+
++ echo 'Building test UI: /c/Cpp_gen_AI/pos/test_ui.exe'
+Building test UI: /c/Cpp_gen_AI/pos/test_ui.exe
++ '[' -f /c/Cpp_gen_AI/pos/test_ui.exe ']'
++ rm -f /c/Cpp_gen_AI/pos/test_ui.exe
++ echo 'g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/test_ui.cpp" -o "/c/Cpp_gen_AI/pos/test_ui.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++'
+g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ "/c/Cpp_gen_AI/pos/test_ui.cpp" -o "/c/Cpp_gen_AI/pos/test_ui.exe" -LC:/msys64/mingw64/lib  C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a  -static-libgcc -static-libstdc++
++ g++ -std=c++17 -IC:/msys64/mingw64/lib/wx/include/msw-unicode-static-3.2 -IC:/msys64/mingw64/include/wx-3.2 -D__WXMSW__ /c/Cpp_gen_AI/pos/test_ui.cpp -o /c/Cpp_gen_AI/pos/test_ui.exe -LC:/msys64/mingw64/lib C:/msys64/mingw64/lib/libwx_mswu_xrc-3.2.a C:/msys64/mingw64/lib/libwx_mswu_qa-3.2.a C:/msys64/mingw64/lib/libwx_baseu_net-3.2.a C:/msys64/mingw64/lib/libwx_mswu_html-3.2.a C:/msys64/mingw64/lib/libwx_mswu_core-3.2.a C:/msys64/mingw64/lib/libwx_baseu_xml-3.2.a C:/msys64/mingw64/lib/libwx_baseu-3.2.a -lwx_mswu_core-3.2 -lwxjpeg-3.2 -lwxpng-3.2 -lwxtiff-3.2 -lwx_baseu-3.2 -lwxexpat-3.2 -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lws2_32 -lwininet -loleacc -luxtheme -lwxzlib-3.2 -lwxregexu-3.2 C:/msys64/mingw64/lib/liblzma.dll.a -static-libgcc -static-libstdc++
++ TEST_UI_EXIT=0
++ '[' 0 -eq 0 ']'
++ echo 'Test UI compiled successfully'
+Test UI compiled successfully
++ ls -l /c/Cpp_gen_AI/pos/test_ui.exe
+-rwxr-xr-x 1 marga marga 14097800 Feb 17 21:38 /c/Cpp_gen_AI/pos/test_ui.exe
++ set +x
+================================
+BUILD SUMMARY
+================================
+================================
+BUILD SUMMARY
+================================
+Date: Tue, Feb 17, 2026  9:38:49 PM
+Date: Tue, Feb 17, 2026  9:38:49 PM
+Exit Code: 0
+
+✓ MAIN BUILD SUCCESSFUL
+Exit Code: 0
+
+✓ MAIN BUILD SUCCESSFUL
+Executable: /c/Cpp_gen_AI/pos/pos.exe
+Executable: /c/Cpp_gen_AI/pos/pos.exe
+-rwxr-xr-x 1 marga marga 17M Feb 17 21:38 /c/Cpp_gen_AI/pos/pos.exe
+-rwxr-xr-x 1 marga marga 17M Feb 17 21:38 /c/Cpp_gen_AI/pos/pos.exe
+
+✓ MIGRATION UTILITY BUILD
+✓ migrate.exe compiled successfully
+
+✓ MIGRATION UTILITY BUILD
+✓ migrate.exe compiled successfully
+-rwxr-xr-x 1 marga marga 3.6M Feb 17 21:38 /c/Cpp_gen_AI/pos/migrate.exe
+-rwxr-xr-x 1 marga marga 3.6M Feb 17 21:38 /c/Cpp_gen_AI/pos/migrate.exe
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Log file: /c/Cpp_gen_AI/pos/build_output.log
+================================
+
+Full build log saved to: /c/Cpp_gen_AI/pos/build_output.log
+Open this file to check for errors.
 Press Enter to exit...
