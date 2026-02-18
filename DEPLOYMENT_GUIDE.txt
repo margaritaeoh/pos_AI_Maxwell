@@ -1,0 +1,516 @@
+================================================================================
+POS SYSTEM - DEPLOYMENT GUIDE
+Version 1.0
+Date: February 17, 2026
+================================================================================
+
+This guide explains how to prepare and distribute the POS System to end users.
+
+===============================================================================
+1. PRE-DEPLOYMENT CHECKLIST
+===============================================================================
+
+Before creating deployment packages, verify:
+
+  ☐ Build Verification
+    • Exit Code: 0 (successful build)
+    • pos.exe exists (17 MB)
+    • migrate.exe exists (3.6 MB)
+    • test_ui.exe exists (14 MB, optional for distribution)
+
+  ☐ File Integrity
+    • All three executables are present
+    • No corrupted files
+    • File timestamps are recent
+    • No error messages in build_output.log
+
+  ☐ Documentation
+    • REQUIREMENTS.txt is complete
+    • INSTALLATION_GUIDE.txt is comprehensive
+    • README.txt is clear and helpful
+    • CHANGELOG.txt documents version history
+
+  ☐ Installer Scripts
+    • install.bat is present and readable
+    • POS_Installer.nsi is present and valid
+    • Both scripts have been tested
+
+  ☐ Testing
+    • Application runs on clean Windows machine
+    • Theme switching works (Ctrl+T)
+    • Customization dialog opens (Ctrl+P)
+    • Spanish characters display correctly
+    • Data persistence works
+
+===============================================================================
+2. DEPLOYMENT OPTIONS
+===============================================================================
+
+Option A: Simple Distribution (Batch Installer)
+-----------
+Best For: Small deployments, internal installations, easy setup
+
+Contents:
+  • install.bat (installer script)
+  • pos.exe (main application)
+  • migrate.exe (optional - migration utility)
+  • INSTALLATION_GUIDE.txt (user instructions)
+  • README.txt (quick start)
+  • REQUIREMENTS.txt (feature documentation)
+
+Distribution Method:
+  • ZIP file for email/download
+  • USB drive/external drive
+  • Network share
+  • CD/DVD (for archival)
+
+File Structure in Archive:
+  POS_System_v1.0.zip
+  ├── install.bat
+  ├── pos.exe
+  ├── migrate.exe
+  ├── README.txt
+  ├── INSTALLATION_GUIDE.txt
+  └── REQUIREMENTS.txt
+
+Deployment Steps:
+  1. User extracts zip file
+  2. User runs install.bat as Administrator
+  3. Application is installed to C:\Program Files\POS System
+  4. User can launch from Start Menu or shortcut
+  5. Uninstall available from Start Menu or installation directory
+
+Pros:
+  • Single file to download
+  • No dependencies
+  • Quick installation
+  • Easy to troubleshoot
+  • Works on all Windows versions
+
+Cons:
+  • Less professional appearance
+  • Users must run as Administrator
+  • No uninstall GUI
+
+---
+
+Option B: Professional Distribution (NSIS Installer)
+-----------
+Best For: Enterprise installations, wider distribution, professional appearance
+
+Prerequisites:
+  • NSIS (free, must be installed by deployment staff)
+  • More technical setup required
+
+Contents:
+  • POS_Installer.nsi (installer script)
+  • pos.exe (main application)
+  • migrate.exe (migration utility)
+  • INSTALLATION_GUIDE.txt (referenced in installer)
+  • README.txt (displayed after install)
+  • REQUIREMENTS.txt (feature reference)
+  • Generated: POS_System_Installer_v1.0.exe
+
+Distribution Method:
+  • Email installer .exe directly
+  • Download from website
+  • Enterprise deployment tools (SCCM, PDQ)
+  • Network deployment
+
+File Structure for NSIS Build:
+  deployment/
+  ├── POS_Installer.nsi (source script)
+  ├── pos.exe
+  ├── migrate.exe
+  ├── README.txt
+  ├── INSTALLATION_GUIDE.txt
+  └── [Generated] POS_System_Installer_v1.0.exe
+
+Deployment Steps (Technical):
+  1. Install NSIS on build/deployment machine
+  2. Prepare files and POS_Installer.nsi script
+  3. Run: makensis.exe POS_Installer.nsi
+  4. Generated .exe is ready for distribution
+  5. Distribute .exe to end users
+  6. Users run installers like standard Windows apps
+
+End-User Steps:
+  1. Double-click POS_System_Installer_v1.0.exe
+  2. Follow wizard (language selection available)
+  3. Choose installation directory
+  4. Choose installation options
+  5. Install completes automatically
+  6. Launch from Start Menu
+
+Pros:
+  • Professional appearance
+  • Standard Windows installer experience
+  • Multi-language support
+  • Better error handling
+  • Works with enterprise deployment tools
+  • Automatic file associations
+
+Cons:
+  • Requires NSIS tooling for build
+  • Larger distribution file (~20 MB)
+  • Technical staff needed for build process
+
+---
+
+Option C: Portable/USB Distribution
+-----------
+Best For: Temporary installations, testing, offline environments
+
+Contents:
+  • pos.exe
+  • migrate.exe
+  • data/ (folder with empty CSVs)
+  • INSTALLATION_GUIDE.txt
+  • README.txt
+
+Structure on USB:
+  E:\POS_System\                    [USB drive example]
+  ├── pos.exe
+  ├── migrate.exe
+  ├── run_portable.bat              [Script to run from USB]
+  ├── data\
+  │   ├── usuarios.csv
+  │   ├── productos.csv
+  │   ├── ventas.txt
+  │   ├── reporte_inventario.csv
+  │   ├── reporte_ventas.csv
+  │   └── lmdb\                     [Created on first run]
+  ├── README.txt
+  └── INSTALLATION_GUIDE.txt
+
+To Use:
+  1. Copy entire POS_System folder to USB drive
+  2. Users plug in USB on any Windows machine
+  3. Navigate to USB drive in File Explorer
+  4. Double-click pos.exe to run directly
+  5. Data stored on USB, no disk installation needed
+
+Pros:
+  • No installation required
+  • Works on any Windows machine
+  • Portable between computers
+  • Easy to delete (no registry entries)
+  • Good for demonstrations
+
+Cons:
+  • Data lost if USB disconnected during use
+  • Slower than installed application
+  • Limited to drive letter assignment
+
+===============================================================================
+3. PRE-DEPLOYMENT BUILD VERIFICATION
+===============================================================================
+
+Step 1: Verify Build Success
+--------
+  Open build_output.log and check:
+    • Exit Code: 0 (SUCCESS)
+    • Message: "✓ MAIN BUILD SUCCESSFUL"
+    • Executable sizes:
+      - pos.exe: ~17 MB
+      - migrate.exe: ~3.6 MB
+      - test_ui.exe: ~14 MB
+
+Step 2: Test Executables
+--------
+  Windows Command Prompt:
+    cd C:\Cpp_gen_AI\pos
+    pos.exe
+  
+  Verify:
+    • Application window opens
+    • Login dialog appears
+    • No error messages in console
+    • All UI elements render correctly
+    • Spanish characters display properly (in menus)
+
+  Test Basic Features:
+    1. Open theme customization (Ctrl+P)
+    2. Try switching themes (Ctrl+T)
+    3. Verify colors apply correctly
+    4. Check menu items are visible
+    5. Close application cleanly
+
+Step 3: Verify Installer Scripts
+--------
+  Test install.bat:
+    1. Copy install.bat and pos.exe to test directory
+    2. Right-click install.bat → Run as Administrator
+    3. Watch for any error messages
+    4. Verify files appear in Program Files
+    5. Verify Start Menu shortcuts created
+    6. Verify data files are empty but present
+    7. Launch installed application
+    8. Run uninstall and verify removal
+
+  Test NSIS Installer (.nsi):
+    1. Open NSIS Compiler
+    2. File → Open → POS_Installer.nsi
+    3. Click Compile (or F11)
+    4. Verify .exe is generated (20 MB)
+    5. Run generated .exe
+    6. Follow wizard steps
+    7. Verify installation in Program Files
+    8. Test uninstall option
+
+Step 4: Clean Environment Test
+--------
+  (Simulates first-time user installation)
+  1. Create virtual machine or test environment
+  2. Fresh Windows 10/11 install
+  3. Install from distribution media
+  4. Verify:
+     • Application launches
+     • No missing DLL errors
+     • All features work
+     • Spanish characters render
+     • Theme system functions
+     • Data persistence works
+     • Uninstall works cleanly
+
+===============================================================================
+4. PACKAGE PREPARATION
+===============================================================================
+
+Creating Batch Installer Package:
+----------
+  1. Create delivery folder: C:\Delivery\POS_v1.0
+  2. Copy these files into it:
+     - install.bat
+     - pos.exe
+     - migrate.exe
+     - README.txt
+     - INSTALLATION_GUIDE.txt
+     - REQUIREMENTS.txt
+  3. Create ZIP file:
+     • Right-click folder → Send to → Compressed (zipped) folder
+     • Name: POS_System_v1.0.zip
+  4. Verify ZIP contains all files
+  5. Test extraction on clean machine
+
+Creating NSIS Installer Package:
+----------
+  1. Build NSIS installer:
+     a. Ensure NSIS is installed
+     b. Place posInstaller.nsi in build directory with pos.exe, migrate.exe
+     c. Run: makensis.exe POS_Installer.nsi
+     d. Generated: POS_System_Installer_v1.0.exe (~20 MB)
+  2. Test installer:
+     a. Run on clean Windows machine
+     b. Verify installation succeeds
+     c. Verify uninstall works
+  3. Create distribution folder:
+     • POS_System_Installer_v1.0.exe
+     • README.txt (quick start guide)
+     • INSTALLATION_GUIDE.txt (full instructions)
+
+Creating Portable Package:
+----------
+  1. Create folder: C:\Delivery\POS_Portable
+  2. Copy files:
+     - pos.exe
+     - migrate.exe
+  3. Create data folder with empty CSVs:
+     mkdir data
+     Create empty CSV files with headers (see INSTALLATION_GUIDE.txt)
+  4. Create run_portable.bat:
+     @echo off
+     START "" pos.exe
+  5. Create README_PORTABLE.txt:
+     - Quick start instructions
+     - Data location warning
+     - Performance notes
+  6. Create ZIP:
+     • Name: POS_Portable_v1.0.zip
+     • Contents: pos.exe, migrate.exe, data/, run_portable.bat, README_PORTABLE.txt
+
+===============================================================================
+5. DISTRIBUTION METHODS
+===============================================================================
+
+Email Distribution
+--------
+  • Max file size: 20-100 MB (per mail server)
+  • Format: ZIP or .exe
+  • Include: INSTALLATION_GUIDE.txt
+  • Sample email:
+    
+    Subject: POS System v1.0 Installation Package
+    
+    Dear User,
+    
+    Please find attached the POS System v1.0 installer.
+    
+    QUICK START:
+    1. Download and extract the attachment
+    2. Right-click install.bat and select "Run as Administrator"
+    3. Follow on-screen prompts
+    4. Launch POS System from Start Menu
+    
+    For detailed instructions, see INSTALLATION_GUIDE.txt
+    
+    System Requirements:
+    - Windows 7 or later
+    - 50 MB free disk space
+    - Administrator rights
+
+Website Download
+--------
+  • Hosting: Web server, GitHub Releases, or cloud storage
+  • Format: ZIP or .exe
+  • Include download verification:
+    - File size
+    - MD5/SHA256 checksum
+  • Sample web page:
+    
+    POS System v1.0 - Download
+    Size: 20 MB
+    Release Date: 2026-02-17
+    System Requirements: Windows 7+
+    
+    Download Options:
+    • Full Installer (NSIS): POS_System_Installer_v1.0.exe
+    • Quick Installer (Batch): POS_System_v1.0.zip
+    • Portable Version: POS_Portable_v1.0.zip
+    
+    Checksums (for integrity verification):
+    MD5: [hash value]
+    SHA256: [hash value]
+
+USB Drive Distribution
+--------
+  • Folder structure:
+    POS_System/
+    ├── install.bat
+    ├── pos.exe
+    ├── migrate.exe
+    ├── README.txt
+    └── INSTALLATION_GUIDE.txt
+  
+  • Users:
+    1. Plug USB into computer
+    2. Run install.bat
+    3. Follow prompts
+
+Network Share Distribution
+--------
+  • Share path: \\server\software\POS_System_v1.0
+  • Contents: All installer files
+  • Access: Read-only for users
+  • Deploy script for IT staff:
+    
+    @echo off
+    net use Z: \\server\software
+    cd Z:\POS_System_v1.0
+    install.bat
+
+Enterprise Deployment Tools
+--------
+  For IT departments using:
+  • SCCM (System Center Configuration Manager)
+  • PDQ Deploy
+  • Altiris
+  • InTune
+  
+  Steps:
+  1. Create software package with pos.exe and migrate.exe
+  2. Create deployment script or use native tools
+  3. Deploy to target computers
+  4. Verify installation on test group first
+  5. Roll out to organization
+
+===============================================================================
+6. VERSION MANAGEMENT
+===============================================================================
+
+Version Numbering:
+  Format: major.minor.patch
+  Example: 1.0.0, 1.1.0, 1.0.1
+  
+  • Major: Significant new features or major changes
+  • Minor: New features or enhancements
+  • Patch: Bug fixes and small improvements
+
+Release Naming:
+  • Archive: POS_System_v1.0.zip
+  • Installer: POS_System_Installer_v1.0.exe
+  • Portable: POS_Portable_v1.0.zip
+
+Changelog Format (CHANGELOG.txt):
+  
+  Version 1.0.0 - February 17, 2026
+  ================================
+  New Features:
+    • Modern dark/light theme system
+    • Custom theme personalization dialog
+    • Inventory management
+    • Sales transaction recording
+    • Comprehensive reporting
+    • LMDB database backend
+  
+  Bug Fixes:
+    • Spanish character encoding issues
+    • Grid header styling
+  
+  Known Issues:
+    • None reported in initial release
+  
+  System Requirements:
+    • Windows 7 or later
+    • 50 MB disk space
+    • Administrator rights
+
+===============================================================================
+7. ROLLBACK PROCEDURES
+===============================================================================
+
+If Issues Occur After Deployment:
+
+Step 1: Isolate Problem
+  • Is issue on all machines or isolated?
+  • Does uninstall and reinstall resolve it?
+  • Is it data-related or application-related?
+
+Step 2: Provide Rollback
+  • Keep previous version available
+  • Document detailed steps for users
+  • Provide support contact information
+
+Step 3: Issue Resolution
+  • Fix identified problem
+  • Update installer and documentation
+  • Create patch/new version
+  • Redistribute to affected users
+
+Step 4: Post-Incident Review
+  • Document what went wrong
+  • Update testing procedures
+  • Update documentation
+  • Prevent recurrence in future releases
+
+===============================================================================
+8. SUPPORT & MAINTENANCE
+===============================================================================
+
+Post-Deployment Support:
+  1. Monitor user feedback
+  2. Capture issues and bugs
+  3. Maintain comprehensive documentation
+  4. Provide timely updates
+  5. Keep version history
+
+Update Distribution:
+  1. Test thoroughly before release
+  2. Create patch release (e.g., v1.0.1)
+  3. Use same distribution channels
+  4. Provide update instructions
+  5. Maintain backward compatibility where possible
+
+===============================================================================
+END OF DEPLOYMENT GUIDE
+================================================================================

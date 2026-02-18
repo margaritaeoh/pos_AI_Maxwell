@@ -1,0 +1,411 @@
+================================================================================
+POS SYSTEM - INSTALLATION GUIDE
+Version 1.0
+Date: February 17, 2026
+================================================================================
+
+===============================================================================
+TABLE OF CONTENTS
+===============================================================================
+1. System Requirements
+2. Installation Options
+3. Installing with Batch Installer (Simple)
+4. Installing with NSIS Installer (Professional)
+5. First-Time Setup
+6. Uninstallation
+7. Troubleshooting
+8. File Structure After Installation
+9. Configuration & Data
+
+===============================================================================
+1. SYSTEM REQUIREMENTS
+===============================================================================
+
+Minimum Requirements:
+  • Operating System: Windows 7 or later (32-bit or 64-bit)
+  • Processor: Intel Pentium 4 or equivalent
+  • RAM: 512 MB minimum (1 GB recommended)
+  • Disk Space: 50 MB free space for installation
+  • .NET Framework: Not required (all libraries statically linked)
+
+Recommended Configuration:
+  • Operating System: Windows 10 or Windows 11 (64-bit)
+  • Processor: Modern multi-core processor (Intel i5/i7 or AMD equivalent)
+  • RAM: 4 GB or more
+  • Disk Space: 100 MB free space (includes data and future growth)
+  • Administrator Rights: Required for installation
+
+===============================================================================
+2. INSTALLATION OPTIONS
+===============================================================================
+
+Option A: Batch Installer (Recommended for Simplicity)
+  File: install.bat
+  Pros:
+    • Simple, no external dependencies
+    • Works on all Windows versions
+    • Easy to modify if needed
+    • Native Windows batch scripting
+  Cons:
+    • Less polished user interface
+    • Requires Administrator command prompt
+
+Option B: NSIS Installer (Professional/Enterprise)
+  File: POS_Installer.nsi
+  Requires: NSIS (free download from https://nsis.sourceforge.io/)
+  Pros:
+    • Professional appearance
+    • Standard Windows installer experience
+    • Better error handling
+    • Multi-language support (English/Spanish)
+  Cons:
+    • Requires NSIS to be installed first
+    • Larger installer file size
+
+Option C: Portable Installation (Advanced Users)
+  • Copy pos.exe and data folder to any directory
+  • Create empty CSVs manually in data/ folder
+  • Run pos.exe directly
+
+===============================================================================
+3. INSTALLING WITH BATCH INSTALLER (SIMPLE)
+===============================================================================
+
+STEP 1: Prepare Installation Files
+  1. Extract all files from the distribution package
+  2. Ensure the following files are present in the same directory:
+     - install.bat
+     - pos.exe
+
+STEP 2: Run Installer
+  Option A (Recommended):
+    1. Right-click on install.bat
+    2. Select "Run as Administrator"
+    3. Click "Yes" when prompted for permission
+
+  Option B (Command Line):
+    1. Open Command Prompt as Administrator
+       • Press Win+R
+       • Type: cmd
+       • Press Ctrl+Shift+Enter
+    2. Navigate to installation directory
+       cd C:\path\to\installation\files
+    3. Run installer
+       install.bat
+
+STEP 3: Monitor Installation Progress
+  • The script will display status messages
+  • Watch for any error messages (they appear in red)
+  • If any errors occur, see Troubleshooting section
+
+STEP 4: Verify Installation
+  • Check installation directory (default: C:\Program Files\POS System)
+  • Verify these files exist:
+    - pos.exe
+    - migrate.exe (if included)
+    - data\ directory with CSV files
+  • Check Start Menu for "POS System" shortcut
+
+STEP 5: Launch Application
+  • From Start Menu:
+    1. Click Start
+    2. Type "POS System"
+    3. Click on "POS System" result
+  OR
+  • Double-click C:\Program Files\POS System\pos.exe
+
+===============================================================================
+4. INSTALLING WITH NSIS INSTALLER (PROFESSIONAL)
+===============================================================================
+
+STEP 1: Install NSIS (One-Time)
+  1. Download NSIS from: https://nsis.sourceforge.io/Download
+  2. Run the NSIS installer
+  3. Follow the installation wizard
+  4. Note the installation directory (usually C:\Program Files (x86)\NSIS)
+
+STEP 2: Prepare Installation Package
+  1. Place these files in the same directory:
+     - POS_Installer.nsi
+     - pos.exe
+     - migrate.exe
+  2. Create a folder named "build" in the same directory
+
+STEP 3: Build the Installer
+  Option A (Using NSIS GUI):
+    1. Open NSIS Compiler (from Start Menu)
+    2. Click "File" → "Open"
+    3. Select "POS_Installer.nsi"
+    4. Click the "Compile" button (or press F11)
+    5. Wait for compilation to complete
+    6. A file "POS_System_Installer_v1.0.exe" will be created
+
+  Option B (Command Line):
+    1. Open Command Prompt as Administrator
+    2. Navigate to NSIS installation directory
+    3. Run: makensis.exe C:\path\to\POS_Installer.nsi
+    4. The installer .exe will be created
+
+STEP 4: Distribute and Install
+  1. The generated "POS_System_Installer_v1.0.exe" is ready for distribution
+  2. Users can run it like any standard Windows installer
+  3. It provides an intuitive installation wizard
+
+STEP 5: Post-Installation
+  • Same as Batch Installer (see Step 5 above)
+
+===============================================================================
+5. FIRST-TIME SETUP
+===============================================================================
+
+After Installation:
+
+1. Initial Database Structure
+   • Empty users database is created (usuarios.csv)
+   • Empty products database is created (productos.csv)
+   • Empty sales database is created (ventas.txt)
+   • Empty report files are ready for use
+
+2. Creating Admin User
+   • The application must have at least one user to run
+   • First launch will guide you through admin user creation
+   • Enter admin credentials (email and password)
+   • These credentials are saved in usuarios.csv
+
+3. First Login
+   • Launch POS System
+   • Enter admin email and password created in step 2
+   • Click "Login"
+   • Application opens with empty inventory and sales data
+
+4. Data Import (Optional)
+   • If migrating from legacy system, use migrate.exe
+   • See MIGRATE UTILITY section for detailed instructions
+   • Place legacy data files in data/ directory first
+
+5. Customization
+   • Access View → Personalizar Vistas (Ctrl+P)
+   • Customize themes, colors, and fonts
+   • Changes are saved automatically
+
+===============================================================================
+6. UNINSTALLATION
+===============================================================================
+
+Method A: Using Uninstall.bat (Batch Installer)
+  1. Navigate to installation directory (default: C:\Program Files\POS System)
+  2. Double-click uninstall.bat
+  3. Confirm uninstallation when prompted
+  4. Installation files will be removed
+  5. Data files in data\ folder are preserved
+  6. Start Menu shortcuts are removed
+
+Method B: Using Windows Control Panel
+  1. Click Start Menu
+  2. Search for "Programs and Features" or "Add/Remove Programs"
+  3. Find "POS System v1.0" in the list
+  4. Click on it and select "Uninstall"
+  5. Follow the prompts to complete uninstallation
+
+Method C: Using NSIS-Generated Installer
+  From Start Menu:
+    1. Click Start
+    2. Search for "POS System"
+    3. Click on "Uninstall" shortcut
+  OR
+  From Program Files:
+    1. Navigate to C:\Program Files\POS System
+    2. Double-click uninstall.exe
+
+WARNING - Data Preservation:
+  • All uninstallation methods preserve the data\ folder
+  • User created data is never automatically deleted
+  • To remove data: manually delete C:\Program Files\POS System\data
+  • Backup important data before deletion
+
+===============================================================================
+7. TROUBLESHOOTING
+===============================================================================
+
+Installation Issues:
+
+  ERROR: "This installer must be run as Administrator"
+    Solution 1: Right-click install.bat → "Run as Administrator"
+    Solution 2: Open Command Prompt as Administrator, then run install.bat
+
+  ERROR: "pos.exe not found in current directory"
+    Solution: Ensure pos.exe is in the same directory as install.bat
+              or run installer from correct directory
+
+  ERROR: "Access Denied" when creating directories
+    Solution 1: Close all POS System processes
+    Solution 2: Ensure you have write permissions to Program Files
+    Solution 3: Install to different drive (e.g., D:\POS System)
+
+  ERROR: "CreateDirectory failed"
+    Solution: Check disk space (minimum 50 MB required)
+             Verify write permissions to installation path
+             Disable antivirus temporarily during installation
+
+Launch Issues:
+
+  ERROR: "pos.exe not found" after installation
+    Solution 1: Verify file exists in installation directory
+    Solution 2: Reinstall application
+    Solution 3: Check if antivirus quarantined the file
+
+  Application won't start / crashes on launch
+    Solution 1: Ensure Windows 7 or later is installed
+    Solution 2: Try running from command line for error messages:
+                cd "C:\Program Files\POS System"
+                pos.exe
+    Solution 3: Reinstall application
+    Solution 4: Check event viewer for system errors
+
+  "Permission Denied" error when accessing data
+    Solution 1: Check data\ folder permissions
+    Solution 2: Ensure data files are not read-only:
+                Right-click data files → Properties → uncheck Read-only
+    Solution 3: Run POS System as Administrator
+
+Database/Data Issues:
+
+  Empty database after installation
+    This is NORMAL behavior
+    • First installation creates empty CSV files
+    • No data exists until you add it through the application
+    • Use Tools → Data Import to load legacy data if needed
+
+  Data not persisting after closing application
+    Solution 1: Ensure data\ folder is not read-only
+    Solution 2: Check disk space availability
+    Solution 3: Verify write permissions
+
+  "Database locked" or access errors
+    Solution 1: Close all other POS instances
+    Solution 2: Wait 30 seconds before retrying
+    Solution 3: Check if file system permissions allow access
+    Solution 4: Run as Administrator
+
+Theme/Display Issues:
+
+  "Theme customization not saving"
+    Solution 1: Ensure user data directory is writable
+    Solution 2: Delete %APPDATA%\Microsoft\Windows\[username]\AppData\Local
+    Solution 3: Try default theme in View menu
+
+  "Spanish characters not displaying correctly"
+    Solution 1: Ensure UTF-8 locale is enabled on Windows
+    Solution 2: Reinstall application
+    Solution 3: Update Windows to latest version
+
+General Troubleshooting Steps:
+
+  For any unresolved issues:
+    1. Check system requirements (section 1)
+    2. Verify installation completed without errors
+    3. Try reinstalling the application
+    4. Consult the REQUIREMENTS.txt file
+    5. Check Windows Event Viewer for application errors
+    6. Disable antivirus temporarily to verify
+    7. Scan system for malware
+    8. Update Windows and drivers
+
+===============================================================================
+8. FILE STRUCTURE AFTER INSTALLATION
+===============================================================================
+
+Default Installation Path: C:\Program Files\POS System\
+
+Directory Structure:
+  C:\Program Files\POS System\
+  ├── pos.exe                          [Main application executable]
+  ├── migrate.exe                      [Data migration utility]
+  ├── uninstall.bat                    [Uninstall script]
+  │
+  └── data\                            [Data directory]
+      ├── usuarios.csv                 [User credentials (empty initially)]
+      ├── productos.csv                [Products database (empty initially)]
+      ├── ventas.txt                   [Sales transactions (empty initially)]
+      ├── reporte_inventario.csv       [Inventory reports (empty initially)]
+      ├── reporte_ventas.csv           [Sales reports (empty initially)]
+      │
+      └── lmdb\                        [LMDB database files (created on first run)]
+          ├── [database files]
+          └── [index files]
+
+User Data Directory:
+  Location: %APPDATA%\Microsoft\Windows\[username]\AppData\Local\
+  Contains:
+    • custom_theme.ini                 [User's custom theme settings]
+
+================================================================================
+9. CONFIGURATION & DATA
+===============================================================================
+
+CSV File Formats:
+
+usuarios.csv (User Credentials):
+  Headers: email,password,nombre,tipo
+  Example:
+    admin@pos.local,admin123,Administrator,admin
+    user@pos.local,user123,Regular User,user
+
+productos.csv (Inventory):
+  Headers: id,nombre,descripcion,precio,cantidad,categoria
+  Example:
+    1,Café,Café molido,5.99,100,Bebidas
+    2,Azúcar,Azúcar blanca,3.50,50,Ingredientes
+
+ventas.txt (Sales Transactions):
+  Format: Timestamped transaction records
+  Contents: Added when sales transactions occur
+
+reporte_inventario.csv (Inventory Reports):
+  Headers: producto,cantidad,precio_unitario,valor_total
+  Auto-generated from inventory data
+
+reporte_ventas.csv (Sales Reports):
+  Headers: fecha,producto,cantidad,precio_unitario,total
+  Auto-generated from sales transactions
+
+custom_theme.ini (Custom Theme Settings):
+  Format: INI file with color values (R,G,B format)
+  Example:
+    [Colors]
+    BackgroundMain=25,25,25
+    TextPrimary=230,230,230
+  Auto-saved when customizing theme via application
+
+================================================================================
+10. TECHNICAL DETAILS
+================================================================================
+
+Executable Details:
+  • pos.exe (17 MB)
+    - Main POS application
+    - Includes all wxWidgets and dependencies (statically linked)
+    - No additional DLL dependencies required
+    - Framework: wxWidgets 3.2
+    - Database: LMDB
+    - Language: C++17
+
+  • migrate.exe (3.6 MB)
+    - Database migration utility
+    - Converts legacy formats to LMDB
+    - Optional but recommended for data migration
+
+Registry Entries Added:
+  • HKCU\Software\POS System
+    - Install_Dir: Installation path
+  • HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\POS System
+    - DisplayName: Application name
+    - UninstallString: Uninstall command
+
+Start Menu Items:
+  • POS System (shortcut to pos.exe)
+  • Uninstall POS System (shortcut to uninstall script)
+
+================================================================================
+END OF INSTALLATION GUIDE
+================================================================================
