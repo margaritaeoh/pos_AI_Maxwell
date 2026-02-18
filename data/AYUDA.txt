@@ -1,0 +1,236 @@
+================================================================================
+                    SISTEMA DE PUNTO DE VENTA (POS)
+                          GUÍA DE USUARIO
+================================================================================
+
+CONTENIDOS:
+1. Introducción
+2. Inicio de Sesión
+3. Panel Principal
+4. Módulo de Ventas
+5. Módulo de Inventario
+6. Módulo de Reportes
+7. Administración de Usuarios
+8. Troubleshooting
+
+================================================================================
+1. INTRODUCCIÓN
+================================================================================
+
+El Sistema de Punto de Venta (POS) es una aplicación diseñada para gestionar:
+- Ventas de productos
+- Inventario de productos
+- Generación de reportes
+- Administración de usuarios
+
+El sistema cuenta con dos tipos de usuarios:
+  • Administrador: Acceso completo a todas las funciones
+  • Usuario Estándar: Acceso limitado a visualización de inventario
+
+================================================================================
+2. INICIO DE SESIÓN
+================================================================================
+
+Para acceder al sistema:
+
+  USUARIO ADMINISTRADOR:
+  - Usuario: admin
+  - Contraseña: 1234
+  - Rol: Administrador (acceso completo)
+
+  USUARIO ESTÁNDAR:
+  - Puede registrarse como nuevo usuario
+  - Si no se asigna contraseña, puede entrar sin ella
+  - Rol: Usuario Estándar (acceso limitado)
+
+REGISTRO DE NUEVO USUARIO:
+  1. Click en el botón "Registrarse" en la ventana de inicio
+  2. Ingrese usuario y contraseña
+  3. Seleccione el rol (Usuario Estándar o Administrador)
+  4. Para usuarios estándar: desmarque "Requiere Contraseña" si desea
+  5. Click en "Registrarse"
+
+================================================================================
+3. PANEL PRINCIPAL
+================================================================================
+
+La ventana principal contiene:
+
+  BARRA SUPERIOR:
+  - Usuario actual y rol asignado
+  - Botón "Tema": Cambia entre tema claro y oscuro
+  - Botón "Cerrar sesión": Cierra la sesión actual
+
+  MENÚ (Barra de Menús):
+  - Archivo: Opciones de exportación y salida
+  - Edición: Preferencias y configuración
+  - Herramientas: Administración de usuarios (solo admin)
+  - Ayuda: Acceso a esta guía
+
+  PESTAÑAS PRINCIPALES:
+  - Ventas: Procesar transacciones de ventas
+  - Inventario: Gestionar productos
+  - Reportes: Visualizar reportes (solo admin)
+
+================================================================================
+4. MÓDULO DE VENTAS
+================================================================================
+
+En la pestaña "Ventas" puede:
+
+  REALIZAR UNA VENTA:
+  1. Ingrese el código del producto o búsquelo en la lista
+  2. Ingrese la cantidad a vender
+  3. El sistema calcula automáticamente el total
+  4. Click en "Agregar al carrito"
+  5. Repita para más productos
+  6. Click en "Procesar pago" para completar la venta
+
+  OPCIONES DE PAGO:
+  - Efectivo
+  - Tarjeta débito
+  - Tarjeta crédito
+  - Cheque
+
+  NOTA: Los usuarios estándar pueden ver el historial de ventas
+        pero solo los administradores pueden procesarlas.
+
+================================================================================
+5. MÓDULO DE INVENTARIO
+================================================================================
+
+En la pestaña "Inventario" puede:
+
+  USUARIOS ADMINISTRADOR:
+  - Ver todos los productos
+  - Agregar nuevos productos
+  - Editar información de productos
+  - Navegar con paginación
+
+  USUARIOS ESTÁNDAR:
+  - Ver todos los productos (solo lectura)
+  - Navegar con paginación
+  - NO puede editar ni agregar productos
+
+  INFORMACIÓN POR PRODUCTO:
+  - ID único
+  - Código de barras
+  - Código local
+  - Nombre del producto
+  - Precio público
+  - Precio mayorista
+  - Unidad de medida
+  - Cantidad en inventario
+  - Fecha de caducidad
+  - Tipo de presentación
+
+  AGREGAR PRODUCTO (Admin):
+  1. Click en "Agregar producto"
+  2. Complete los datos del producto
+  3. Click en "Guardar"
+
+  EDITAR PRODUCTO (Admin):
+  1. Seleccione el producto de la tabla
+  2. Click en "Editar producto"
+  3. Modifique los datos
+  4. Click en "Guardar"
+
+  PRODUCTOS CON BAJO INVENTARIO:
+  - Los productos con cantidad < 5 unidades se resaltan en rojo
+  - Esto ayuda a identificar productos que necesitan reorden
+
+  PAGINACIÓN:
+  - Use los botones "← Anterior" y "Siguiente →"
+  - Cada página muestra 50 productos
+
+================================================================================
+6. MÓDULO DE REPORTES
+================================================================================
+
+DISPONIBLE SOLO PARA ADMINISTRADORES
+
+En la pestaña "Reportes" puede generar:
+
+  REPORTE DE VENTAS:
+  - Ventas por período
+  - Ventas por producto
+  - Ingresos totales
+  - Exportar a formato CSV
+
+  REPORTE DE INVENTARIO:
+  - Estado actual del inventario
+  - Productos por agotar
+  - Valor total del inventario
+  - Exportar a formato CSV
+
+  OPCIONES DE EXPORTACIÓN:
+  1. Seleccione el tipo de reporte
+  2. Configure el período (si aplica)
+  3. Click en "Generar reporte"
+  4. Click en "Exportar a CSV" para descargar
+
+================================================================================
+7. ADMINISTRACIÓN DE USUARIOS
+================================================================================
+
+MENÚ HERRAMIENTAS (Solo Admin)
+
+El administrador puede:
+
+  CREAR NUEVO USUARIO:
+  1. Vaya a Herramientas > Crear Usuario
+  2. Ingrese datos del nuevo usuario
+  3. Seleccione el rol
+  4. Click en "Crear"
+
+  ELIMINAR USUARIO:
+  1. Vaya a Herramientas > Gestionar Usuarios
+  2. Seleccione el usuario a eliminar
+  3. Click en "Eliminar"
+
+  RESTRICCIONES:
+  - No se puede eliminar el usuario "admin"
+  - Cada usuario debe tener un nombre único
+  - Las contraseñas se almacenan encriptadas
+
+================================================================================
+8. TROUBLESHOOTING
+================================================================================
+
+PROBLEMA: "Usuario o contraseña incorrectos"
+SOLUCIÓN: Verifique que:
+  - El nombre de usuario sea correcto
+  - La contraseña sea exacta (sensible a mayúsculas/minúsculas)
+  - Presione "Entrar sin contraseña" si es un usuario sin password
+
+PROBLEMA: "No se puede agregar producto"
+SOLUCIÓN: Posibles causas:
+  - Ha alcanzado el límite de 10,000 productos
+  - Campos requeridos vacíos
+  - ID de producto duplicado
+
+PROBLEMA: No puedo editar inventario
+SOLUCIÓN: Solo administradores pueden editar productos
+  - Si es usuario estándar, pídale a un admin que haga los cambios
+
+PROBLEMA: No veo los reportes
+SOLUCIÓN: Los reportes solo están disponibles para administradores
+  - Debe iniciar sesión como usuario "admin"
+
+PROBLEMA: La ventana está muy pequeña
+SOLUCIÓN: Redimensione la ventana
+  - El sistema se adapta automáticamente al tamaño
+  - Minimice o maximice según sea necesario
+
+================================================================================
+INFORMACIÓN DE CONTACTO / SOPORTE
+================================================================================
+
+Para reportar problemas o sugerencias:
+- Contacte al administrador del sistema
+- Verifique los logs de la aplicación en pos_startup.log
+
+================================================================================
+Versión: 1.0
+Última actualización: Febrero 2026
+================================================================================

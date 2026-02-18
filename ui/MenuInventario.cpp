@@ -1,6 +1,8 @@
 #include "MenuInventario.h"
+#include "ThemeHelper.h"
 #include <ctime>
 #include <wx/wx.h>
+#include <wx/scrolwin.h>
 #include "../modelos/Producto.h"
 
 // Helper: convert system/UTF-8 encoding to wxString
@@ -19,11 +21,14 @@ enum {
     ID_BTN_NEXT
 };
 
-MenuInventario::MenuInventario(wxWindow* parent)
+MenuInventario::MenuInventario(wxWindow* parent, const pos::Usuario& usuario)
     : wxPanel(parent),
       archivoProductos("data/productos.csv"),
-      inventario(archivoProductos)
+      inventario(archivoProductos),
+      usuarioActual(usuario)
 {
+    theme::Styling::ApplyActiveTheme(this);
+    
     try {
         inventario.cargar();
     } catch (const std::exception& e) {
@@ -32,17 +37,26 @@ MenuInventario::MenuInventario(wxWindow* parent)
 
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
 
+    // Create scrolled window for vertical resizing
+    wxScrolledWindow* scrollWin = new wxScrolledWindow(this);
+    scrollWin->SetScrollRate(5, 5);
+    theme::Styling::ApplyActiveTheme(scrollWin);
+
+    wxBoxSizer* scrollSizer = new wxBoxSizer(wxVERTICAL);
+
     // ---------------------------
     // PAGE INFO
     // ---------------------------
-    lblPageInfo = new wxStaticText(this, wxID_ANY, "Página 1 de 1 (0 productos)");
-    mainSizer->Add(lblPageInfo, 0, wxALL, 5);
+    lblPageInfo = new wxStaticText(scrollWin, wxID_ANY, "Página 1 de 1 (0 productos)");
+    theme::Styling::StyleAsLabel(lblPageInfo);
+    scrollSizer->Add(lblPageInfo, 0, wxALL, 5);
 
     // ---------------------------
     // GRID
     // ---------------------------
-    grid = new wxGrid(this, wxID_ANY);
+    grid = new wxGrid(scrollWin, wxID_ANY);
     grid->CreateGrid(0, 10);
+    theme::Styling::StyleGrid(grid);
 
     grid->SetColLabelValue(0, "ID");
     grid->SetColLabelValue(1, toWxString("Código barras"));
@@ -55,20 +69,22 @@ MenuInventario::MenuInventario(wxWindow* parent)
     grid->SetColLabelValue(8, toWxString("Caducidad"));
     grid->SetColLabelValue(9, toWxString("Presentación"));
 
-    mainSizer->Add(grid, 1, wxEXPAND | wxALL, 5);
+    scrollSizer->Add(grid, 1, wxEXPAND | wxALL, 5);
 
     // ---------------------------
     // PAGINATION BUTTONS
     // ---------------------------
     wxBoxSizer* paginationSizer = new wxBoxSizer(wxHORIZONTAL);
     
-    wxButton* btnPrev = new wxButton(this, ID_BTN_PREV, "← Anterior");
-    wxButton* btnNext = new wxButton(this, ID_BTN_NEXT, "Siguiente →");
+    wxButton* btnPrev = new wxButton(scrollWin, ID_BTN_PREV, wxString::FromUTF8("← Anterior"));
+    wxButton* btnNext = new wxButton(scrollWin, ID_BTN_NEXT, wxString::FromUTF8("Siguiente →"));
+    theme::Styling::StyleButtonSecondary(btnPrev);
+    theme::Styling::StyleButtonSecondary(btnNext);
     
     paginationSizer->Add(btnPrev, 0, wxALL, 5);
     paginationSizer->Add(btnNext, 0, wxALL, 5);
     
-    mainSizer->Add(paginationSizer, 0, wxALIGN_CENTER | wxALL, 5);
+    scrollSizer->Add(paginationSizer, 0, wxALIGN_CENTER | wxALL, 5);
 
     btnPrev->Bind(wxEVT_BUTTON, &MenuInventario::OnPaginaAnterior, this);
     btnNext->Bind(wxEVT_BUTTON, &MenuInventario::OnPaginaSiguiente, this);
@@ -78,21 +94,37 @@ MenuInventario::MenuInventario(wxWindow* parent)
     // ---------------------------
     wxBoxSizer* buttonSizer = new wxBoxSizer(wxHORIZONTAL);
 
-    wxButton* btnAgregar = new wxButton(this, ID_BTN_AGREGAR, "Agregar producto");
-    wxButton* btnEditar  = new wxButton(this, ID_BTN_EDITAR,  "Editar producto");
+    btnAgregar = new wxButton(scrollWin, ID_BTN_AGREGAR, wxString::FromUTF8("Agregar producto"));
+    btnEditar  = new wxButton(scrollWin, ID_BTN_EDITAR,  wxString::FromUTF8("Editar producto"));
+    theme::Styling::StyleButtonAccent(btnAgregar);
+    theme::Styling::StyleButtonSecondary(btnEditar);
 
     buttonSizer->Add(btnAgregar, 0, wxALL, 5);
     buttonSizer->Add(btnEditar,  0, wxALL, 5);
 
-    mainSizer->Add(buttonSizer, 0, wxALIGN_RIGHT | wxALL, 5);
+    scrollSizer->Add(buttonSizer, 0, wxALIGN_RIGHT | wxALL, 5);
 
     // Eventos
     btnAgregar->Bind(wxEVT_BUTTON, &MenuInventario::OnAgregar, this);
     btnEditar->Bind(wxEVT_BUTTON, &MenuInventario::OnEditar, this);
 
+    scrollWin->SetSizer(scrollSizer);
+    mainSizer->Add(scrollWin, 1, wxEXPAND);
     SetSizer(mainSizer);
 
     CargarProductosEnGrid();
+    
+    // Apply role-based restrictions
+    RestringirPorRol();
+}
+
+void MenuInventario::RestringirPorRol() {
+    if (usuarioActual.rol == pos::RolUsuario::Usuario) {
+        // Standard users can only view, not edit
+        btnAgregar->Enable(false);
+        btnEditar->Enable(false);
+        grid->EnableEditing(false);
+    }
 }
 
 void MenuInventario::CargarProductosEnGrid() {

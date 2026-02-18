@@ -14,6 +14,7 @@ struct Usuario {
     std::string username;
     std::string passwordHash;
     RolUsuario rol;
+    bool requierePassword = true;  // true for admin, false for standard users
 };
 
 } // namespace pos

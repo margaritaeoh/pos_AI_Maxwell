@@ -27,11 +27,19 @@ bool Inventario::cargar() {
             return true;  // Still OK to continue without products
         }
 
+        // Always populate the index from CSV products (for search functionality)
+        if (index) {
+            for (const auto& p : productos) {
+                index->addProducto(p);
+            }
+            std::cout << "Índice de búsqueda poblado con " << productos.size() << " productos" << std::endl;
+        }
+
         if (!useLMDB) {
             return true;
         }
 
-        // Load existing products from LMDB if available and initialized
+        // If LMDB is enabled, also save to database
         if (db && index) {
             size_t dbCount = 0;
             for (const auto& p : productos) {
@@ -40,13 +48,11 @@ bool Inventario::cargar() {
                 
                 if (db->put(key, value)) {
                     dbCount++;
-                    // Add to index
-                    index->addProducto(p);
                 }
             }
 
             if (dbCount > 0) {
-                std::cout << "Cargados " << dbCount << " productos en LMDB e índices" << std::endl;
+                std::cout << "Cargados " << dbCount << " productos en LMDB" << std::endl;
             }
         }
 

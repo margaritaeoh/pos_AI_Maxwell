@@ -1,5 +1,5 @@
 id,codigoBarras,codigoLocal,nombre,descripcion,precioPublico,precioMayorista,tipoUnidad,cantidadInventario,anioCaducidad,mesCaducidad,diaCaducidad,presentacion,piezasPorPresentacion
-1,1234545466,123,Producto 1 pción 1,Descripción 1,130,103,3,10.15,2030,10,1,2,12
+1,1234545466,123,Producto 1 pción 1,Descripción 1,130,103,3,9.65,2030,10,1,2,12
 2,2394664545,234,Producto 2,Descripcion 2,10,7,0,5,2026,11,2,1,24
 3,3554783624,345,Producto 3,Descripcion 3,5,3.5,0,4,2027,9,3,1,36
 4,4714902703,456,Producto 4,Descripcion 4,123,86.1,0,15,2028,8,4,1,48
@@ -9,7 +9,7 @@ id,codigoBarras,codigoLocal,nombre,descripcion,precioPublico,precioMayorista,tip
 8,9355379019,900,Producto 8,Descripcion 8,52.7,36.89,0,29,2028,11,3,1,96
 9,10515498098,1011,Producto 9,Descripcion 9,50.1,35.07,0,20,2030,5,4,1,12
 10,11675617177,1122,Producto 10,Descripcion 10,47.5,33.25,0,15,2026,4,3,1,24
-11,12835736256,1233,Producto 11,Descripcion 11,44.9,31.43,0,25,2027,6,31,1,36
+11,12835736256,1233,Producto 11,Descripcion 11,44.9,31.43,0,24,2027,6,31,1,36
 12,13995855335,1344,Producto 12,Descripcion 12,42.3,29.61,0,20,2028,7,1,1,48
 13,15155974414,1455,Producto 13,Descripcion 13,39.7,27.79,0,5,2030,8,2,1,60
 14,16316093493,1566,Producto 14,Descripcion 14,37.1,25.97,0,4,2026,4,3,1,72

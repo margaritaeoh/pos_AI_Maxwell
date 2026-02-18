@@ -14,9 +14,16 @@ private:
     pos::ArchivoVentas archivoVentas;
     pos::ArchivoProductos archivoProductos;
     pos::Reportes reportes;
+    
+    wxTextCtrl* txtSalesReport;
+    wxTextCtrl* txtInventoryReport;
+    wxStaticText* lblSalesStatus;
+    wxStaticText* lblInventoryStatus;
 
     void OnReporteVentas(wxCommandEvent& evt);
     void OnReporteInventario(wxCommandEvent& evt);
+    void OnBrowseSalesReport(wxCommandEvent& evt);
+    void OnBrowseInventoryReport(wxCommandEvent& evt);
 };
 
 #endif

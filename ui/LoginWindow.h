@@ -13,11 +13,14 @@ private:
     wxTextCtrl* txtUsuario;
     wxTextCtrl* txtPassword;
     wxStaticText* lblError;
+    wxCheckBox* chkSinPassword;
 
     pos::ArchivoUsuarios archivoUsuarios;
     pos::Autenticacion auth;
 
     void OnLogin(wxCommandEvent& evt);
+    void OnSignUp(wxCommandEvent& evt);
+    void OnPasswordCheckboxToggle(wxCommandEvent& evt);
 };
 
 #endif

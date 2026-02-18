@@ -48,6 +48,10 @@ private:
     void RefrescarGrid();
     void RecalcularTotal();
     void ActualizarSugerencias();
+    
+    // Helper methods for search
+    double CalcularRelevancia(const std::string& busqueda, const pos::Producto* producto) const;
+    int CalcularDistanciaLevenshtein(const std::string& s1, const std::string& s2) const;
 };
 
 #endif

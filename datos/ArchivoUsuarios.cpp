@@ -25,14 +25,19 @@ bool ArchivoUsuarios::cargar(std::vector<Usuario>& usuarios) {
         std::getline(ss, u.username, ',');
         std::getline(ss, u.passwordHash, ',');
         std::getline(ss, campo, ',');
-        //u.rol = (RolUsuario)std::stoi(campo);
-		
-if (campo == "Administrador")
-    u.rol = RolUsuario::Administrador;
-else
-    u.rol = RolUsuario::Usuario;
-
-
+        
+        if (campo == "Administrador")
+            u.rol = RolUsuario::Administrador;
+        else
+            u.rol = RolUsuario::Usuario;
+        
+        // Read requierePassword field (default to true if not present)
+        std::string passwordReqStr;
+        if (std::getline(ss, passwordReqStr, ',')) {
+            u.requierePassword = (passwordReqStr == "1" || passwordReqStr == "true");
+        } else {
+            u.requierePassword = true;
+        }
 
         usuarios.push_back(u);
     }
@@ -44,12 +49,13 @@ bool ArchivoUsuarios::guardar(const std::vector<Usuario>& usuarios) {
     std::ofstream out(rutaArchivo);
     if (!out.is_open()) return false;
 
-    out << "username,passwordHash,rol\n";
+    out << "username,passwordHash,rol,requierePassword\n";
 
     for (const auto& u : usuarios) {
         out << u.username << ","
             << u.passwordHash << ","
-            << (int)u.rol << "\n";
+            << (u.rol == RolUsuario::Administrador ? "Administrador" : "Usuario") << ","
+            << (u.requierePassword ? "1" : "0") << "\n";
     }
 
     return true;

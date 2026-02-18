@@ -1,2 +1,3 @@
-﻿username,passwordHash,rol
-admin,H:1234,Administrador
+username,passwordHash,rol,requierePassword
+admin,H:1234,Administrador,1
+martin,H:password,Usuario,1

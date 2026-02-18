@@ -16,7 +16,14 @@ public:
     bool guardar();
 
     std::optional<Usuario> login(const std::string& username,
-                                 const std::string& passwordPlano);
+                                 const std::string& passwordPlano = "");
+
+    bool verificarUsuarioExiste(const std::string& username);
+    
+    bool registrarUsuario(const std::string& username,
+                         const std::string& passwordPlano,
+                         RolUsuario rol,
+                         bool requierePassword = true);
 
     bool agregarUsuario(const Usuario& usuario);
 

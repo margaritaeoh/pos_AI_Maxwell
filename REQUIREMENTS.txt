@@ -1,0 +1,321 @@
+================================================================================
+POS SYSTEM - REQUIREMENTS DOCUMENT
+Version 1.0
+Date: February 17, 2026
+================================================================================
+
+===============================================================================
+1. POS APPLICATION FEATURES
+===============================================================================
+
+1.1 USER AUTHENTICATION & SESSION MANAGEMENT
+  ✓ Login Window with email/password authentication
+  ✓ Sign-up functionality with user registration
+  ✓ Session management with current user tracking
+  ✓ User logout with session termination
+  ✓ User management capabilities for administrators
+  ✓ Spanish language support throughout authentication flows
+
+1.2 THEME SYSTEM & CUSTOMIZATION
+  ✓ Default Dark Theme (VS Code-style modern appearance)
+  ✓ Light Theme (classic Windows 98-style alternative)
+  ✓ Theme Toggle Menu (Ctrl+T shortcut)
+  ✓ Customizable UI Dialog ("Personalizar Vistas")
+    - Color customization for 14 UI elements:
+      * Background colors (main, panels, input fields, grid headers)
+      * Text colors (primary, secondary, accent)
+      * Button colors (accent, hover state, button text)
+      * Status colors (success, error, warning, info)
+    - Font customization:
+      * Title size (8-32pt range)
+      * Header size (8-24pt range)
+      * Label size (8-20pt range)
+      * Default text size (8-18pt range)
+      * Bold headers option
+    - Button styling:
+      * Border width (0.5-5.0px range)
+      * Border radius (0-20px range)
+      * Gradient fill option
+  ✓ Custom theme persistence (INI file format)
+  ✓ Theme loading on application startup
+  ✓ Real-time theme application across all UI elements
+
+1.3 INVENTORY MANAGEMENT MODULE
+  ✓ Product listing and display
+  ✓ Product information form with:
+    - Product name (Spanish accents supported)
+    - Product description
+    - Price management
+    - Stock quantity tracking
+    - Category classification
+  ✓ Add/Edit/Delete product operations
+  ✓ Resizable inventory view (wxScrolledWindow vertical scrolling)
+  ✓ Grid-based product display with:
+    - Colored headers matching current theme
+    - Sortable columns
+    - Proper UTF-8 encoding for Spanish text
+  ✓ Inventory file persistence
+  ✓ Stock level monitoring
+
+1.4 SALES MANAGEMENT MODULE
+  ✓ Sale transaction recording
+  ✓ Sale item management with:
+    - Product selection
+    - Quantity input (including fractional quantities)
+    - Price calculation
+    - Customer information
+    - Transaction timestamp
+  ✓ Fractional Quantity Dialog for partial units
+  ✓ Resizable sales view (wxScrolledWindow vertical scrolling)
+  ✓ Grid-based sales display with:
+    - Colored headers matching current theme
+    - Transaction details visualization
+    - Proper UTF-8 encoding for Spanish text
+  ✓ Sales history tracking
+  ✓ Sales file persistence
+
+1.5 REPORTING MODULE
+  ✓ Inventory Report Generation
+    - Product listing with current stock
+    - Stock value calculations
+    - Reorder recommendations
+  ✓ Sales Report Generation
+    - Daily/periodic sales summaries
+    - Revenue calculations
+    - Best-selling products
+    - Sales trends
+  ✓ Report display in resizable grid view
+  ✓ Report export functionality (CSV format)
+  ✓ Spanish-language report headers and labels
+
+1.6 DATA MANAGEMENT & PERSISTENCE
+  ✓ LMDB database backend
+  ✓ File-based persistence for:
+    - User credentials
+    - Products (productos.csv)
+    - Sales transactions (ventas.txt)
+    - Inventory data (reporte_inventario.csv)
+    - Sales reports (reporte_ventas.csv)
+  ✓ Database indexing for performance
+  ✓ Index management utilities
+  ✓ Data migration utilities (see MIGRATE UTILITY section)
+
+1.7 USER INTERFACE & UX FEATURES
+  ✓ Multi-tab interface with:
+    - Ventas (Sales) tab
+    - Inventario (Inventory) tab
+    - Reportes (Reports) tab
+  ✓ Menu bar with:
+    - File menu (Export Data, Exit)
+    - View menu (Change Theme, Customize Views)
+    - Help menu (View Help, About)
+    - User menu (Manage Users, Logout)
+  ✓ Keyboard shortcuts:
+    - Ctrl+T: Toggle theme
+    - Ctrl+P: Customize views (Personalizar Vistas)
+  ✓ Status updates and user feedback
+  ✓ Help file integration
+  ✓ About dialog with application information
+  ✓ Responsive layouts that adapt to window resizing
+
+1.8 LOCALIZATION & INTERNATIONALIZATION
+  ✓ Full Spanish language support throughout application
+  ✓ UTF-8 character encoding for accented characters:
+    - Spanish accents (á, é, í, ó, ú)
+    - ñ character support
+    - Special characters
+  ✓ Spanish month names and date formatting
+  ✓ Spanish currency formatting
+  ✓ Spanish number formatting
+
+1.9 TECHNICAL REQUIREMENTS
+  ✓ Built with wxWidgets 3.2 (cross-platform UI framework)
+  ✓ C++17 standard compliance
+  ✓ Static linking for wxWidgets libraries
+  ✓ LMDB database integration
+  ✓ MinGW64 compiler support on Windows
+  ✓ UTF-8 file I/O and stream handling
+  ✓ Object-oriented architecture with:
+    - Usuario (User) model
+    - Producto (Product) model
+    - Venta (Sale) model
+    - Business logic separation (Autenticacion, Inventario, ProcesadorVentas)
+    - Data access layer (Archivo*, DatabaseManager, IndexManager)
+
+===============================================================================
+2. MIGRATE UTILITY FEATURES
+===============================================================================
+
+2.1 DATABASE MIGRATION
+  ✓ Legacy data format conversion
+  ✓ Data transformation from CSV to LMDB
+  ✓ Schema mapping and data normalization
+  ✓ Batch migration operations
+  ✓ Data validation during migration
+
+2.2 LMDB DATABASE MANAGEMENT
+  ✓ Database creation and initialization
+  ✓ Data insertion and updates
+  ✓ Data retrieval and queries
+  ✓ Transaction support for data consistency
+  ✓ Database optimization
+
+2.3 INDEX MANAGEMENT
+  ✓ Index creation for fast lookups
+  ✓ Index maintenance and rebuilding
+  ✓ Performance optimization through proper indexing
+  ✓ Index statistics and reporting
+
+2.4 DATA VALIDATION & INTEGRITY
+  ✓ Data format validation
+  ✓ Field requirement checking
+  ✓ Referential integrity constraints
+  ✓ Duplicate detection
+  ✓ Data consistency verification
+
+2.5 UTILITY OUTPUT
+  ✓ Migration status reporting
+  ✓ Error logging and reporting
+  ✓ Progress indication for long-running operations
+  ✓ Summary statistics after migration
+
+===============================================================================
+3. FILE STRUCTURE & DATA FORMATS
+===============================================================================
+
+3.1 DATA FILES
+  Location: /data/ directory
+  - productos.csv: Product information (comma-separated)
+  - usuarios.csv: User credentials (comma-separated)
+  - ventas.txt: Sales transactions (text format)
+  - reporte_inventario.csv: Inventory report data
+  - reporte_ventas.csv: Sales report data
+
+3.2 CONFIGURATION FILES
+  Location: User data directory (via wxStandardPaths)
+  - custom_theme.ini: Custom theme settings (R,G,B color format)
+
+3.3 DATABASE FILES
+  Location: LMDB database directory
+  - LMDB environment with multiple named databases
+  - Products database
+  - Users database
+  - Sales database
+  - Index database
+
+===============================================================================
+4. BUILD & DEPLOYMENT REQUIREMENTS
+===============================================================================
+
+4.1 BUILD ENVIRONMENT
+  ✓ MSYS2 with MinGW64 toolchain
+  ✓ wxWidgets 3.2 static libraries
+  ✓ LMDB library
+  ✓ C++ compiler with C++17 support
+  ✓ Shell script build process (build.sh)
+
+4.2 OUTPUT EXECUTABLES
+  ✓ pos.exe: Main POS application (~17MB)
+  ✓ migrate.exe: Migration utility (~3.6MB)
+  ✓ test_ui.exe: UI testing utility (~14MB)
+
+4.3 COMPILATION FLAGS
+  ✓ -std=c++17 (C++ standard)
+  ✓ -D__WXMSW__ (Windows platform)
+  ✓ -static-libgcc -static-libstdc++ (Static runtime linking)
+  ✓ UTF-8 support in compiler flags
+
+===============================================================================
+5. QUALITY & TESTING REQUIREMENTS
+===============================================================================
+
+5.1 FUNCTIONAL TESTING
+  ✓ User authentication flows
+  ✓ Theme switching and customization
+  ✓ Inventory add/edit/delete operations
+  ✓ Sales transaction recording
+  ✓ Report generation and export
+  ✓ Data persistence and retrieval
+  ✓ Migration utility data transformation
+
+5.2 UI/UX TESTING
+  ✓ Responsive window resizing
+  ✓ Theme application across all components
+  ✓ Spanish character display in all fields
+  ✓ Menu and shortcut functionality
+  ✓ Dialog interactions and validations
+
+5.3 PERFORMANCE REQUIREMENTS
+  ✓ Fast application startup
+  ✓ Responsive UI during data operations
+  ✓ Efficient database queries
+  ✓ Proper memory management
+  ✓ Smooth theme switching
+
+5.4 RELIABILITY REQUIREMENTS
+  ✓ Data integrity after transactions
+  ✓ Graceful error handling
+  ✓ Session persistence
+  ✓ Automatic error recovery where possible
+  ✓ Logging of critical operations
+
+===============================================================================
+6. SECURITY REQUIREMENTS
+===============================================================================
+
+6.1 USER AUTHENTICATION
+  ✓ Password storage and validation
+  ✓ Session management
+  ✓ User role/permission checking
+  ✓ Logout and session cleanup
+
+6.2 DATA PROTECTION
+  ✓ File access controls
+  ✓ Database transaction isolation
+  ✓ Data backup through file persistence
+
+===============================================================================
+7. DOCUMENTATION REQUIREMENTS
+===============================================================================
+
+7.1 CODE DOCUMENTATION
+  ✓ Header file documentation
+  ✓ Function/method documentation
+  ✓ Class structure documentation
+  ✓ Complex algorithm explanations
+
+7.2 USER DOCUMENTATION
+  ✓ Help file (integrated in application)
+  ✓ User guide for core features
+  ✓ Keyboard shortcut reference
+  ✓ Theme customization guide
+  ✓ This requirements document
+
+===============================================================================
+8. KNOWN FEATURES & ENHANCEMENTS
+===============================================================================
+
+8.1 COMPLETED ENHANCEMENTS
+  ✓ Modern VS Code-style dark theme
+  ✓ Classic light theme option
+  ✓ Full UTF-8/Spanish language support
+  ✓ Resizable views for better UX
+  ✓ Comprehensive theme customization dialog
+  ✓ Theme persistence across sessions
+  ✓ Dynamic theme application to runtime UI changes
+
+8.2 FUTURE ENHANCEMENTS (Potential)
+  - Multi-user concurrent access
+  - Advanced reporting with charts/graphs
+  - Barcode scanning integration
+  - Receipt printing functionality
+  - Cloud backup integration
+  - Mobile app companion
+  - API for third-party integrations
+  - Advanced search and filtering
+  - Bulk data import/export
+  - User activity logging and auditing
+
+================================================================================
+END OF REQUIREMENTS DOCUMENT
+================================================================================

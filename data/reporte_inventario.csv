@@ -1,5 +1,5 @@
 id,codigoBarras,codigoLocal,nombre,precioPublico,precioMayorista,cantidad,presentacion
-1,1234545466,123,Producto 1 pción 1,130,103,18,2
+1,1234545466,123,Producto 1 pción 1,130,103,9.65,2
 2,2394664545,234,Producto 2,10,7,5,1
 3,3554783624,345,Producto 3,5,3.5,4,1
 4,4714902703,456,Producto 4,123,86.1,15,1
