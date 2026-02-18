@@ -14,7 +14,7 @@ namespace pos {
  */
 class DatabaseManager {
 public:
-    DatabaseManager(const std::string& dbPath, size_t maxSizeGB = 10);
+    DatabaseManager(const std::string& dbPath, size_t maxSizeGB = 1);
     ~DatabaseManager();
 
     // Delete copy/move for simplicity
@@ -40,6 +40,8 @@ public:
     // Maintenance
     bool sync();
     bool vacuum();
+    bool resizeDatabase(size_t newSizeGB);  // Dynamically resize if database grows
+    size_t getCurrentSizeGB() const;         // Get current allocated size in GB
 
 private:
     MDB_env* env = nullptr;
@@ -47,6 +49,7 @@ private:
     MDB_txn* txn = nullptr;  // current transaction
     MDB_txn* batchTxn = nullptr;  // batch transaction
     std::string dbPath;
+    size_t maxSizeGB = 1;    // Maximum database size in GB
     bool isInitialized = false;
 
     bool openEnvironment();

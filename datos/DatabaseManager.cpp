@@ -5,7 +5,7 @@
 namespace pos {
 
 DatabaseManager::DatabaseManager(const std::string& dbPath, size_t maxSizeGB)
-    : dbPath(dbPath) {
+    : dbPath(dbPath), maxSizeGB(maxSizeGB) {
     try {
         std::filesystem::create_directories(dbPath);
         
@@ -29,8 +29,10 @@ bool DatabaseManager::openEnvironment() {
     int rc = mdb_env_create(&env);
     if (rc) return false;
 
-    // Set max size
-    rc = mdb_env_set_mapsize(env, 10UL * 1024UL * 1024UL * 1024UL);  // 10GB default
+    // Use the maxSizeGB parameter (stored in constructor)
+    // Convert GB to bytes: maxSizeGB * 1GB = maxSizeGB * 1024 * 1024 * 1024 bytes
+    size_t mapSize = maxSizeGB * 1024UL * 1024UL * 1024UL;
+    rc = mdb_env_set_mapsize(env, mapSize);
     if (rc) return false;
 
     // Open environment
@@ -224,6 +226,35 @@ bool DatabaseManager::vacuum() {
     // LMDB doesn't have explicit vacuum, but we can compact by copying
     // For now, just sync
     return sync();
+}
+
+bool DatabaseManager::resizeDatabase(size_t newSizeGB) {
+    if (!isInitialized || newSizeGB < 1) return false;
+    
+    try {
+        // Close current environment
+        closeEnvironment();
+        
+        // Store new size
+        maxSizeGB = newSizeGB;
+        
+        // Reopen with new size
+        if (!openEnvironment()) {
+            std::cerr << "Error: Failed to reopen environment after resize" << std::endl;
+            isInitialized = false;
+            return false;
+        }
+        
+        return true;
+    } catch (const std::exception& e) {
+        std::cerr << "Error resizing database: " << e.what() << std::endl;
+        isInitialized = false;
+        return false;
+    }
+}
+
+size_t DatabaseManager::getCurrentSizeGB() const {
+    return maxSizeGB;
 }
 
 } // namespace pos

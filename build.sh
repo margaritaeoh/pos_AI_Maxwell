@@ -38,7 +38,7 @@ WX_LIBS_RAW="$($WX_CONFIG --static --libs 2>/dev/null || $WX_CONFIG --libs)"
 WX_LIBS="$(echo "$WX_LIBS_RAW" | sed 's/-shared-libgcc//g') -static-libgcc -static-libstdc++"
 
 # Check for LMDB
-LMDB_LIBS="-llmdb"
+LMDB_LIBS="-llmdb -lsetupapi"
 if ! pkg-config --exists lmdb 2>/dev/null; then
   echo "WARNING: LMDB not found via pkg-config. Using default -llmdb"
 fi
