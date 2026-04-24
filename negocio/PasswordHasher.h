@@ -18,7 +18,7 @@ namespace pos {
 
 class PasswordHasher {
 public:
-    // Produce a new-format hash: "H2:<sha256(username+":"+password)>"
+    // Produce a new-format hash: "H2:<sha256(username:password)>"
     static std::string hashPassword(const std::string& username,
                                     const std::string& password) {
         return "H2:" + sha256(username + ":" + password);

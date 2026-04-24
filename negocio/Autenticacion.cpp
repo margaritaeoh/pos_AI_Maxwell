@@ -16,25 +16,25 @@ bool Autenticacion::guardar() {
 
 std::optional<Usuario> Autenticacion::login(const std::string& username,
                                             const std::string& passwordPlano) {
-    for (auto& u : usuarios) {
-        if (u.username == username) {
+    for (auto& user : usuarios) {
+        if (user.username == username) {
             // If password is not required, allow login without password
-            if (!u.requierePassword) {
-                return u;
+            if (!user.requierePassword) {
+                return user;
             }
 
             // Verify password (supports legacy "H:" and current "H2:" formats)
-            if (!PasswordHasher::verifyPassword(username, passwordPlano, u.passwordHash)) {
+            if (!PasswordHasher::verifyPassword(username, passwordPlano, user.passwordHash)) {
                 continue;
             }
 
             // Upgrade legacy hash to SHA-256 on successful login
-            if (PasswordHasher::needsUpgrade(u.passwordHash)) {
-                u.passwordHash = PasswordHasher::hashPassword(username, passwordPlano);
+            if (PasswordHasher::needsUpgrade(user.passwordHash)) {
+                user.passwordHash = PasswordHasher::hashPassword(username, passwordPlano);
                 archivo.guardar(usuarios);
             }
 
-            return u;
+            return user;
         }
     }
     return std::nullopt;
