@@ -30,8 +30,6 @@ public:
 private:
     ArchivoUsuarios& archivo;
     std::vector<Usuario> usuarios;
-
-    std::string hashPassword(const std::string& passwordPlano);
 };
 
 } // namespace pos

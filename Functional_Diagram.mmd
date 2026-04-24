@@ -1,0 +1,150 @@
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#007acc', 'edgeLabelBackground': '#252526'}}}%%
+graph TB
+    %% ===========================
+    %% Application Entry Point
+    %% ===========================
+    subgraph APP["🚀 Application Entry (main.cpp)"]
+        POSApp["POSApp\n(wxApp)"]
+    end
+
+    %% ===========================
+    %% Authentication Layer
+    %% ===========================
+    subgraph AUTH["🔐 Authentication Layer"]
+        LoginWindow["LoginWindow\n(wxFrame)"]
+        SignUpWindow["SignUpWindow\n(wxDialog)"]
+        Autenticacion["Autenticacion\n(Business Logic)"]
+        PasswordHasher["PasswordHasher\n(SHA-256 utility)"]
+        ArchivoUsuarios["ArchivoUsuarios\n(CSV I/O)"]
+    end
+
+    %% ===========================
+    %% Main Application Window
+    %% ===========================
+    subgraph MAIN["🖥️ Main Application (MainWindow)"]
+        MainWindow["MainWindow\n(wxFrame + Notebook)"]
+        MenuBar["MenuBar\n(File / View / Tools / Help)"]
+        UICustomizationDialog["UICustomizationDialog\n(Theme Editor)"]
+        ThemeHelper["ThemeHelper\n(Colors / Fonts / Styling)"]
+    end
+
+    %% ===========================
+    %% Sales Module
+    %% ===========================
+    subgraph VENTAS["💰 Sales Module"]
+        MenuVentas["MenuVentas\n(wxPanel)"]
+        CantidadFraccionDialog["CantidadFraccionDialog\n(Fractional Qty)"]
+        BarcodeScanner["BarcodeScanner\n(HW integration)"]
+        ProcesadorVentas["ProcesadorVentas\n(Business Logic)"]
+        ArchivoVentas["ArchivoVentas\n(ventas.txt I/O)"]
+    end
+
+    %% ===========================
+    %% Inventory Module
+    %% ===========================
+    subgraph INVENTARIO["📦 Inventory Module"]
+        MenuInventario["MenuInventario\n(wxPanel + Pagination)"]
+        ProductoForm["ProductoForm\n(Add/Edit Dialog)"]
+        Inventario["Inventario\n(Business Logic)"]
+        IndexManager["IndexManager\n(O(1) Lookups)"]
+        DatabaseManager["DatabaseManager\n(LMDB Wrapper)"]
+        ArchivoProductos["ArchivoProductos\n(productos.csv I/O)"]
+    end
+
+    %% ===========================
+    %% Reports Module
+    %% ===========================
+    subgraph REPORTES["📊 Reports Module (Admin Only)"]
+        MenuReportes["MenuReportes\n(wxPanel)"]
+        Reportes["Reportes\n(Business Logic)"]
+    end
+
+    %% ===========================
+    %% Data Layer
+    %% ===========================
+    subgraph DATA["💾 Data Layer"]
+        CSVProductos["productos.csv"]
+        CSVUsuarios["usuarios.csv"]
+        TXTVentas["ventas.txt"]
+        CSVReportes["reporte_ventas.csv\nreporte_inventario.csv"]
+        LMDBStore["inventario.db\n(LMDB — optional)"]
+        ThemeINI["custom_theme.ini"]
+    end
+
+    %% ===========================
+    %% Models
+    %% ===========================
+    subgraph MODELS["📋 Domain Models"]
+        Usuario["Usuario\n(username, hash, rol)"]
+        Producto["Producto\n(id, nombre, precio, stock)"]
+        Venta["Venta\n(items, total, timestamp)"]
+    end
+
+    %% ===========================
+    %% Connections
+    %% ===========================
+
+    %% App → Auth
+    POSApp -->|"creates"| LoginWindow
+    LoginWindow -->|"opens"| SignUpWindow
+    LoginWindow -->|"uses"| Autenticacion
+    Autenticacion -->|"delegates to"| PasswordHasher
+    Autenticacion -->|"reads/writes via"| ArchivoUsuarios
+    ArchivoUsuarios -->|"persists to"| CSVUsuarios
+
+    %% Auth → Main
+    LoginWindow -->|"on success\nopens"| MainWindow
+    MainWindow -->|"contains"| MenuBar
+    MainWindow -->|"opens"| UICustomizationDialog
+    UICustomizationDialog -->|"applies"| ThemeHelper
+    ThemeHelper -->|"saves"| ThemeINI
+
+    %% Main → Modules (tabs)
+    MainWindow -->|"tab: Ventas"| MenuVentas
+    MainWindow -->|"tab: Inventario"| MenuInventario
+    MainWindow -->|"tab: Reportes\n(admin only)"| MenuReportes
+
+    %% Sales Module
+    MenuVentas -->|"uses"| ProcesadorVentas
+    MenuVentas -->|"opens"| CantidadFraccionDialog
+    MenuVentas -->|"polls"| BarcodeScanner
+    ProcesadorVentas -->|"writes via"| ArchivoVentas
+    ArchivoVentas -->|"persists to"| TXTVentas
+
+    %% Inventory Module
+    MenuInventario -->|"opens"| ProductoForm
+    MenuInventario -->|"uses"| Inventario
+    Inventario -->|"fast lookup via"| IndexManager
+    Inventario -->|"persistent storage via"| DatabaseManager
+    Inventario -->|"CSV fallback via"| ArchivoProductos
+    DatabaseManager -->|"stores in"| LMDBStore
+    ArchivoProductos -->|"reads/writes"| CSVProductos
+
+    %% Reports Module
+    MenuReportes -->|"uses"| Reportes
+    Reportes -->|"reads"| CSVProductos
+    Reportes -->|"reads"| TXTVentas
+    Reportes -->|"exports to"| CSVReportes
+
+    %% Shared Models
+    Autenticacion -.->|"produces"| Usuario
+    Inventario -.->|"manages"| Producto
+    ProcesadorVentas -.->|"creates"| Venta
+
+    %% ===========================
+    %% Style Classes
+    %% ===========================
+    classDef entryPoint fill:#007acc,stroke:#005a9e,color:#fff,font-weight:bold
+    classDef window fill:#252526,stroke:#007acc,color:#e0e0e0
+    classDef business fill:#2d4a3e,stroke:#4ec9b0,color:#e0e0e0
+    classDef data fill:#3c2f2f,stroke:#f48771,color:#e0e0e0
+    classDef model fill:#2f3040,stroke:#569cd6,color:#e0e0e0
+    classDef utility fill:#363028,stroke:#dcdcaa,color:#e0e0e0
+
+    class POSApp entryPoint
+    class LoginWindow,SignUpWindow,MainWindow,MenuVentas,MenuInventario,MenuReportes,ProductoForm,CantidadFraccionDialog,UICustomizationDialog,MenuBar window
+    class Autenticacion,Inventario,ProcesadorVentas,Reportes,IndexManager business
+    class ArchivoUsuarios,ArchivoProductos,ArchivoVentas,DatabaseManager data
+    class CSVProductos,CSVUsuarios,TXTVentas,CSVReportes,LMDBStore,ThemeINI data
+    class Usuario,Producto,Venta model
+    class PasswordHasher,ThemeHelper,BarcodeScanner utility

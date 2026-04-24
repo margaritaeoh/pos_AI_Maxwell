@@ -1,4 +1,5 @@
 #include "Autenticacion.h"
+#include "PasswordHasher.h"
 
 namespace pos {
 
@@ -13,26 +14,27 @@ bool Autenticacion::guardar() {
     return archivo.guardar(usuarios);
 }
 
-std::string Autenticacion::hashPassword(const std::string& passwordPlano) {
-    std::string hash = "H:";
-    hash += passwordPlano;
-    return hash;
-}
-
 std::optional<Usuario> Autenticacion::login(const std::string& username,
                                             const std::string& passwordPlano) {
-    for (const auto& u : usuarios) {
+    for (auto& u : usuarios) {
         if (u.username == username) {
             // If password is not required, allow login without password
             if (!u.requierePassword) {
                 return u;
             }
-            
-            // If password is required, verify it
-            std::string hash = hashPassword(passwordPlano);
-            if (u.passwordHash == hash) {
-                return u;
+
+            // Verify password (supports legacy "H:" and current "H2:" formats)
+            if (!PasswordHasher::verifyPassword(username, passwordPlano, u.passwordHash)) {
+                continue;
             }
+
+            // Upgrade legacy hash to SHA-256 on successful login
+            if (PasswordHasher::needsUpgrade(u.passwordHash)) {
+                u.passwordHash = PasswordHasher::hashPassword(username, passwordPlano);
+                archivo.guardar(usuarios);
+            }
+
+            return u;
         }
     }
     return std::nullopt;
@@ -54,13 +56,13 @@ bool Autenticacion::registrarUsuario(const std::string& username,
     if (verificarUsuarioExiste(username)) {
         return false;
     }
-    
+
     Usuario nuevoUsuario;
     nuevoUsuario.username = username;
-    nuevoUsuario.passwordHash = hashPassword(passwordPlano);
+    nuevoUsuario.passwordHash = PasswordHasher::hashPassword(username, passwordPlano);
     nuevoUsuario.rol = rol;
     nuevoUsuario.requierePassword = requierePassword;
-    
+
     usuarios.push_back(nuevoUsuario);
     return true;
 }
