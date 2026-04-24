@@ -1,1 +1,21 @@
-inventario.db/data.mdbinventario.db/
+# LMDB database files
+inventario.db/data.mdb
+inventario.db/lock.mdb
+inventario.db/
+
+# Compiled executables (build artifacts)
+*.exe
+
+# Build logs
+build_output.log
+build_result.txt
+pos_startup.log
+test_ui.log
+
+# IDE / editor folders
+.vscode/
+.vs/
+
+# Temporary files
+*.tmp
+*.bak
